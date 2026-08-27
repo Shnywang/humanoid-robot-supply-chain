@@ -18,10 +18,14 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 /* ===== 顶部导航 ===== */
 .topbar{position:sticky;top:0;z-index:100;background:var(--navy);box-shadow:0 2px 12px rgba(11,37,69,.25);}
-.topbar-inner{max-width:1320px;margin:0 auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:15px;white-space:nowrap;}
+.topbar-inner{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;height:64px;}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:15px;white-space:nowrap;flex-shrink:0;}
 .brand .ver{font-size:11px;font-weight:600;color:var(--gold-light);border:1px solid rgba(230,196,102,.4);padding:2px 8px;border-radius:12px;}
-.navtabs{display:flex;gap:2px;flex-wrap:wrap;flex:1;justify-content:flex-end;}
+.navtabs{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:thin;scrollbar-color:rgba(230,196,102,.5) transparent;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.navtabs::-webkit-scrollbar{height:4px;}
+.navtabs::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:2px;}
+.navtabs::-webkit-scrollbar-thumb{background:rgba(230,196,102,.45);border-radius:2px;}
+.navtabs::-webkit-scrollbar-thumb:hover{background:rgba(230,196,102,.7);}
 .navtab{color:#a8b7cc;background:transparent;border:none;padding:10px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;border-radius:6px;transition:all .2s;font-family:inherit;}
 .navtab:hover{color:#fff;background:rgba(255,255,255,.06);}
 .navtab.active{color:#fff;background:var(--navy-light);}
