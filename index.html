@@ -140,18 +140,81 @@ tr:hover td{background:#eef2f8;}
 td .src-link{margin-left:4px;}
 .data-source-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#f5f7fa;border:1px solid var(--border);border-radius:6px;padding:8px 12px;margin:8px 0 16px;font-size:12px;color:var(--text-muted);}
 .data-source-bar b{color:var(--text-dim);font-weight:700;margin-right:4px;}
+
+/* ===== V2.0 新增样式 ===== */
+/* 版本时间线选择器 */
+.ver-selector{display:flex;gap:8px;overflow-x:auto;padding:8px 0;margin-bottom:24px;scrollbar-width:none;}
+.ver-selector::-webkit-scrollbar{display:none;}
+.ver-btn{padding:10px 22px;border-radius:24px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-dim);cursor:pointer;font-size:14px;font-weight:700;white-space:nowrap;transition:all .25s;font-family:inherit;display:flex;align-items:center;gap:8px;}
+.ver-btn:hover{border-color:var(--navy-light);color:var(--navy);}
+.ver-btn.active{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;border-color:var(--navy);box-shadow:0 4px 14px rgba(11,37,69,.2);}
+.ver-btn .ver-date{font-size:11px;font-weight:600;opacity:.7;}
+.ver-btn.active .ver-date{color:var(--gold-light);}
+
+/* 版本内容面板 */
+.ver-panel{display:none;animation:fadein .35s ease;}
+.ver-panel.active{display:block;}
+
+/* 更新条目卡片 */
+.update-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin:12px 0;transition:all .2s;border-left:4px solid var(--navy);}
+.update-card:hover{box-shadow:0 4px 16px rgba(11,37,69,.08);}
+.update-card .uc-tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:8px;}
+.uc-new{background:var(--green-bg);color:var(--green);}
+.uc-fix{background:#e8eef7;color:var(--navy);}
+.uc-data{background:#fbf6e8;color:var(--gold);}
+.uc-insight{background:var(--purple-bg);color:var(--purple);}
+.update-card .uc-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:8px;}
+.update-card .uc-body{font-size:13.5px;color:var(--text);line-height:1.8;}
+
+/* 价格对比卡片 */
+.price-compare{background:linear-gradient(135deg,#0b2545 0%,#1e4a7a 100%);border-radius:12px;padding:24px;margin:16px 0;color:#fff;}
+.price-compare h3{color:#fff;border-left-color:var(--gold-light);}
+.price-compare table th{background:rgba(255,255,255,.1);color:var(--gold-light);}
+.price-compare table td{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08);color:#fff;}
+.price-compare table tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+.price-compare .save{color:#4ade80;font-weight:700;}
+.price-compare .imp{color:#fca5a5;font-weight:600;}
+
+/* 消费者卡片 */
+.consumer-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:22px;margin:12px 0;transition:all .2s;}
+.consumer-card:hover{box-shadow:0 6px 20px rgba(11,37,69,.1);transform:translateY(-2px);}
+.consumer-card .cc-tier{display:inline-block;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;margin-bottom:10px;}
+.cc-entry{background:#dcfce7;color:#166534;}
+.cc-main{background:#dbeafe;color:#1e40af;}
+.cc-pro{background:#fef3c7;color:#92400e;}
+.cc-flag{background:#fee2e2;color:#991b1b;}
+
+/* 关键数据高亮卡（替代白底） */
+.stat-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0;}
+@media(max-width:900px){.stat-hero{grid-template-columns:repeat(2,1fr);}}
+.stat-card{border-radius:12px;padding:20px 18px;text-align:center;transition:transform .2s;}
+.stat-card:hover{transform:translateY(-3px);}
+.stat-card .sc-val{font-size:28px;font-weight:800;margin-bottom:4px;}
+.stat-card .sc-label{font-size:12px;opacity:.9;}
+.stat-navy{background:linear-gradient(135deg,#0b2545,#1e4a7a);color:#fff;}
+.stat-green{background:linear-gradient(135deg,#14532d,#1e6b45);color:#fff;}
+.stat-gold{background:linear-gradient(135deg,#78350f,#a67c00);color:#fff;}
+.stat-purple{background:linear-gradient(135deg,#4c1d95,#5b4b8a);color:#fff;}
+
+/* 成本对比条 */
+.cost-bar{display:flex;height:24px;border-radius:12px;overflow:hidden;margin:6px 0;}
+.cost-bar .cb-domestic{background:linear-gradient(90deg,#166534,#22c55e);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
+.cost-bar .cb-imported{background:linear-gradient(90deg,#991b1b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="brand">🤖 供应链决策中心 <span class="ver">V1.0 · 2026-08-13</span></div>
+    <div class="brand">🤖 供应链决策中心 <span class="ver">V2.0 · 2026-08-27</span></div>
     <div class="navtabs" id="navtabs">
       <button class="navtab active" data-page="overview">决策总览</button>
+      <button class="navtab" data-page="updates">📢 版本动态</button>
       <button class="navtab" data-page="landscape">供应链图谱</button>
       <button class="navtab" data-page="threshold">技术门槛</button>
       <button class="navtab" data-page="scoring">供应商评分</button>
+      <button class="navtab" data-page="costcompare">💰 成本对比</button>
+      <button class="navtab" data-page="consumer">🛒 消费者指南</button>
       <button class="navtab" data-page="compliance">合规标准</button>
       <button class="navtab" data-page="crosschain">链路交叉分析</button>
       <button class="navtab" data-page="cost">成本路径</button>
@@ -164,7 +227,7 @@ td .src-link{margin-left:4px;}
 <!-- ============ PAGE 1: 决策总览 ============ -->
 <div class="page active" id="page-overview">
   <div class="page-title">决策总览：我们应该选择哪家供应商</div>
-  <div class="page-sub">具身智能事业部供应链战略分析 · 数据截至2026年8月13日 · 每月更新</div>
+  <div class="page-sub">具身智能事业部供应链战略分析 · 数据截至2026年8月27日 · 每月更新 · <a href="#" onclick="showPage('updates');return false;" style="color:var(--navy-light);font-weight:600;">查看最新版本动态 →</a></div>
 
   <div class="decision-hero">
     <h3>⭐ 核心结论：六大P0环节首选供应商一览</h3>
@@ -172,7 +235,7 @@ td .src-link{margin-left:4px;}
       <thead><tr><th>环节</th><th>首选供应商（主供）</th><th>备选（副供）</th><th>核心理由</th></tr></thead>
       <tbody>
         <tr><td>谐波减速器</td><td class="pick-winner">绿的谐波</td><td>来福谐波</td><td>国内龙头，独占特斯拉Optimus约70%订单，2025净利+122%</td></tr>
-        <tr><td>行星滚柱丝杠</td><td class="pick-winner">五洲新春</td><td>北特科技</td><td>15亿新产能8月底验收，特斯拉7家核心供应商之一</td></tr>
+        <tr><td>行星滚柱丝杠</td><td class="pick-winner">五洲新春</td><td>北特科技 / 双林股份</td><td>15亿新产能8月底验收，特斯拉7家核心供应商之一</td></tr>
         <tr><td>无框力矩电机</td><td class="pick-winner">步科股份</td><td>汇川技术</td><td>机器人收入占比过半，2026Q1同比+64.6%，业绩兑现度最高</td></tr>
         <tr><td>空心杯电机</td><td class="pick-winner">鸣志电器</td><td>鼎智科技</td><td>已通过特斯拉送样测试，技术能力国内第一梯队</td></tr>
         <tr><td>六维力传感器</td><td class="pick-winner">柯力传感</td><td>宇立仪器</td><td>已送样华为/宇树，国产化率最低环节的领先者</td></tr>
@@ -188,11 +251,18 @@ td .src-link{margin-left:4px;}
     </div>
   </div>
 
-  <div class="grid-4">
-    <div class="card"><div style="font-size:22px;font-weight:800;color:var(--navy);">1.91万台</div><div class="dim" style="font-size:12px;">2026H1全球出货量(3倍增)</div></div>
-    <div class="card"><div style="font-size:22px;font-weight:800;color:var(--navy);">97%</div><div class="dim" style="font-size:12px;">中国厂商全球出货份额</div></div>
-    <div class="card"><div style="font-size:22px;font-weight:800;color:var(--navy);">68%</div><div class="dim" style="font-size:12px;">Optimus国产零部件BOM占比</div></div>
-    <div class="card"><div style="font-size:22px;font-weight:800;color:var(--navy);">~45%→90%</div><div class="dim" style="font-size:12px;">核心部件国产化率(2025→2027目标)</div></div>
+  <!-- 替换白底卡片为深色渐变卡片 -->
+  <div class="stat-hero">
+    <div class="stat-card stat-navy"><div class="sc-val">5.1万台</div><div class="sc-label">2026年全球出货量预测(集邦,IDC +178%)</div></div>
+    <div class="stat-card stat-green"><div class="sc-val">68%→85%</div><div class="sc-label">中国供应链成本优势 vs 全进口方案</div></div>
+    <div class="stat-card stat-gold"><div class="sc-val">¥4.6万</div><div class="sc-label">中国方案整机BOM成本(对比进口$13.1万)</div></div>
+    <div class="stat-card stat-purple"><div class="sc-val">10倍</div><div class="sc-label">行星滚柱丝杠价格跌幅(进口¥5000→国产¥499)</div></div>
+  </div>
+  <div class="src-row" style="margin-top:-8px;">
+    <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗欧美vs中国成本差距来源</a>
+    <a class="src-link" href="https://www.toutiao.com/article/7592859312171647534/" target="_blank">🔗双林股份499元丝杠报道</a>
+    <a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗IDC出货量预测</a>
+    <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗广发证券BOM成本报告</a>
   </div>
 
   <h2><span class="icon">🧭</span>本报告导航</h2>
@@ -207,32 +277,355 @@ td .src-link{margin-left:4px;}
     <div class="toc-item" data-goto="changelog"><div class="ti-num">08</div><div class="ti-title">版本记录</div><div class="ti-desc">迭代历史与下一步优化计划</div></div>
   </div>
 
-  <h2><span class="icon">📰</span>本期行业要闻（近7日）</h2>
+  <h2><span class="icon">📰</span>本期行业要闻（2026年8月最新）</h2>
   <div class="grid-2">
     <div class="card">
-      <h4>宇树科技科创板上市</h4>
-      <p class="dim">8月6日确定发行价150.8元/股，发行市值609.93亿元，8月10日申购，8月底登陆科创板。2024-2025年营收3.93亿→16.99亿元，是国内少有的规模化盈利机器人公司。</p>
-      <a class="src-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_6146a747f2990952" target="_blank">🔗查看原始公告</a>
+      <h4>中国供应链一刀砍掉85%成本</h4>
+      <p class="dim">2026H1全进口方案物料成本$13.1万，中国方案仅$4.6万。行星滚柱丝杠从进口¥5000+降至国产¥499（双林股份），空心杯电机从瑞士Maxon ¥2198降至鸣志电器¥996。执行器+丝杠+减速器三项占整机BOM的68%。</p>
+      <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗查看完整报道</a>
     </div>
     <div class="card">
-      <h4>智元反超宇树登顶出货榜首</h4>
-      <p class="dim">2026H1智元出货8400台(44%份额)反超宇树5900台(31%份额)，两家合计占全球75%。银河通用900台/优必选700台/乐聚600台分列3-5位。</p>
-      <a class="src-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_8716a7c225994152" target="_blank">🔗查看数据来源</a>
+      <h4>IDC预测2026全球出货5.1万台(+178%)</h4>
+      <p class="dim">IDC最新数据：2026年全球人形机器人出货量预计突破5万台，同比增长178%。高工机器人预测中国出货6.25万台占全球近半。2026Q1国内人形机器人融资681亿元，已超2025全年总额。</p>
+      <a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗查看IDC数据</a>
     </div>
     <div class="card">
-      <h4>特斯拉Optimus V3产线全面投产</h4>
-      <p class="dim">弗里蒙特工厂产线8月中旬拉通，周产订单200+，目标9月周产1000台。国产零部件占整机BOM比重达68%，年底目标百万台年产能。</p>
-      <a class="src-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_8416a705e4961852" target="_blank">🔗查看数据来源</a>
+      <h4>优必选U1发布：售价11.98万起，订单破1.3万台</h4>
+      <p class="dim">6月30日优必选推出全尺寸超仿生机器人U1系列，售价11.98-99万元，预售10天订单累计13,361台（2025年全年的10倍+），9月16日启动交付。消费者市场正式启动。</p>
+      <a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗查看发布会报道</a>
     </div>
     <div class="card">
-      <h4>自变量机器人创全球最快分拣纪录</h4>
-      <p class="dim">1小时分拣1816件，以30%成本超越Figure AI 45%效率。核心是WALL-B世界统一模型，标志具身智能竞争从硬件形态转向模型能力。</p>
-      <a class="src-link" href="https://shnywang.github.io/ai_news/site/index.html" target="_blank">🔗查看资讯聚合站</a>
+      <h4>特斯拉下发Optimus量产采购指引</h4>
+      <p class="dim">特斯拉要求供应商9月产能达1000台/周，年底2000-2500台/周。已有8月数百台具体订单下达。弗里蒙特工厂Model S/X产线已腾空给Optimus，全年目标5万台，2027年规划50万台。</p>
+      <a class="src-link" href="https://m.21jingji.com/article/20260710/herald/99a9e3d68157bc985721c3086b92ca8a.html" target="_blank">🔗查看第一财经报道</a>
     </div>
   </div>
 
   <div class="warn-box">
     <p><strong>⚠️ 使用说明：</strong>本网站为持续迭代的内部决策工具，当前为V1.0版本。标注 <span class="pending-badge">需人工介入</span> 的条目表示需要实地调研或供应商访谈补充验证，尚未纳入最终结论。建议按月刷新数据并在"版本记录"页追踪变更历史。</p>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 版本动态 ============ -->
+<div class="page" id="page-updates">
+  <div class="page-title">📢 版本动态</div>
+  <div class="page-sub">以版本号为维度，追踪每次数据更新与结论调整 · 点击版本切换查看历史</div>
+
+  <div class="ver-selector" id="verSelector">
+    <button class="ver-btn active" data-ver="v20">V2.0 <span class="ver-date">2026-08-27</span></button>
+    <button class="ver-btn" data-ver="v10">V1.0 <span class="ver-date">2026-08-13</span></button>
+  </div>
+
+  <!-- V2.0 内容 -->
+  <div class="ver-panel active" id="ver-panel-v20">
+    <div class="update-card" style="border-left-color:var(--green);">
+      <span class="uc-tag uc-new">🆕 新增模块</span>
+      <div class="uc-title">三大全新模块上线</div>
+      <div class="uc-body">
+        <strong>① 💰 成本对比页：</strong>国产vs进口零部件逐件价格对比表，量化"找谁买更便宜"。核心数据：全进口方案$13.1万 → 中国方案$4.6万，成本降幅65%。
+        <br><strong>② 🛒 消费者指南页：</strong>面向终端买家的价格梯队、选购建议、ROI测算——从万元入门款到旗舰工业级全覆盖。
+        <br><strong>③ 📢 版本动态页：</strong>本页，以版本维度记录每次更新内容，支持切换历史版本查看变更。
+      </div>
+    </div>
+
+    <div class="update-card" style="border-left-color:var(--gold);">
+      <span class="uc-tag uc-data">📊 数据更新</span>
+      <div class="uc-title">核心数据全面刷新（8月最新）</div>
+      <div class="uc-body">
+        <table>
+          <thead><tr><th>数据项</th><th>V1.0(8月13日)</th><th>V2.0(8月27日)</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>全球出货量预测</td><td>1.91万台(H1实际)</td><td class="num">5.1万台(全年,IDC)</td><td><a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗赛迪网</a></td></tr>
+            <tr><td>国产vs进口成本差</td><td>未量化</td><td class="num">$13.1万→$4.6万(降65%)</td><td><a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗腾讯新闻</a></td></tr>
+            <tr><td>行星滚柱丝杠价格</td><td>国产¥1500-2500</td><td class="num">双林股份¥499(进口¥5000+)</td><td><a class="src-link" href="https://www.toutiao.com/article/7592859312171647534/" target="_blank">🔗潮新闻</a></td></tr>
+            <tr><td>特斯拉量产指引</td><td>9月周产1000台</td><td class="num">9月1000台/周,年底2000-2500台/周</td><td><a class="src-link" href="https://m.21jingji.com/article/20260710/herald/99a9e3d68157bc985721c3086b92ca8a.html" target="_blank">🔗第一财经</a></td></tr>
+            <tr><td>优必选U1价格</td><td>未收录</td><td class="num">¥11.98万起,订单破1.3万台</td><td><a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗OFweek</a></td></tr>
+            <tr><td>国产丝杠国产化率</td><td>&lt;10%</td><td class="num">2026Q1突破50%(首次过半)</td><td><a class="src-link" href="https://www.toutiao.com/article/7653821120247841330" target="_blank">🔗今日头条</a></td></tr>
+            <tr><td>BOM成本拆解</td><td>占比估算</td><td class="num">广发证券:单台¥31.6万(丝杠35%+传感器19%)</td><td><a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗广发证券</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="update-card" style="border-left-color:var(--navy);">
+      <span class="uc-tag uc-fix">🔧 优化</span>
+      <div class="uc-title">首页核心结论视觉升级</div>
+      <div class="uc-body">
+        去掉白底卡片，改为<strong>深色渐变卡片</strong>（藏青/翠绿/琥珀金/紫色四色），数据展示更直观。同时增加全部核心数据的<strong>溯源链接</strong>。
+      </div>
+    </div>
+
+    <div class="update-card" style="border-left-color:var(--purple);">
+      <span class="uc-tag uc-insight">💡 深度洞察</span>
+      <div class="uc-title">新增行业研究报告引用（6份权威报告）</div>
+      <div class="uc-body">
+        本版本引入以下外部研究报告进行交叉验证：
+        <ul style="margin-top:8px;padding-left:20px;">
+          <li><strong>广发证券</strong>《2026人形机器人BOM成本拆解》——单台¥31.6万，行星滚柱丝杠占35% <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗</a></li>
+          <li><strong>中航证券</strong>《执行器成本:丝杠占23%》——终局成本¥14.2万 vs 现阶段¥42.1万 <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenzhixingqichengben.html" target="_blank">🔗</a></li>
+          <li><strong>云质变科技</strong>《2026量产元年白皮书》——传感器占BOM 37%，传动部件是降本突破口 <a class="src-link" href="https://www.yunzhibian.com/technology-insights-content212.html" target="_blank">🔗</a></li>
+          <li><strong>GrabaRobot</strong>《BOM Where the $55K Sits》——执行器占56%，腿部吃掉1/3成本 <a class="src-link" href="https://grabarobot.com/blog/humanoid-robot-bill-of-materials-cost-2026" target="_blank">🔗</a></li>
+          <li><strong>m8.com.cn</strong>《Q2 2026进展》——月订单超百台逐月递增，进入PPA阶段 <a class="src-link" href="https://m8.com.cn/article/humanoid-robot-q2-2026-progress-insight" target="_blank">🔗</a></li>
+          <li><strong>EE Focus</strong>《行星滚柱丝杠国产替代走到哪了》——2026Q1国产化率突破50% <a class="src-link" href="https://www.eefocus.com/article/2066704.html" target="_blank">🔗</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- V1.0 内容 -->
+  <div class="ver-panel" id="ver-panel-v10">
+    <div class="update-card" style="border-left-color:var(--navy);">
+      <span class="uc-tag uc-fix">📦 初始版本</span>
+      <div class="uc-title">V1.0 首版发布</div>
+      <div class="uc-body">
+        <p style="margin-bottom:8px;"><strong>发布日期：</strong>2026年8月13日</p>
+        <p style="margin-bottom:8px;"><strong>核心内容：</strong></p>
+        <ul style="padding-left:20px;">
+          <li>六大P0环节首选供应商结论（谐波减速器/行星滚柱丝杠/无框力矩电机/空心杯电机/六维力传感器/AI推理芯片）</li>
+          <li>15个关键部件优先级矩阵（Tier-1/Tier-2分级）</li>
+          <li>6大环节技术门槛体系（准入门槛vs优秀基准）</li>
+          <li>六维度1000分供应商评分模型</li>
+          <li>合规标准清单（国标/团标/认证）</li>
+          <li>四链交叉分析（特斯拉/华为/宇树/智元）</li>
+          <li>2025-2030成本下降路径建模</li>
+          <li>18个月分阶段执行路线图</li>
+        </ul>
+        <p style="margin-top:8px;"><strong>本期要闻：</strong>宇树科创板上市/智元反超宇树登顶/特斯拉Optimus V3产线投产国产化率68%/自变量机器人分拣纪录</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 成本对比 ============ -->
+<div class="page" id="page-costcompare">
+  <div class="page-title">💰 供应链成本对比：找谁买更便宜</div>
+  <div class="page-sub">国产 vs 进口零部件逐件价格对比 · 数据来源：广发证券/中航证券/长城证券/EE Focus等行业报告</div>
+
+  <div class="price-compare">
+    <h3>核心结论：中国方案成本仅为进口的35%</h3>
+    <table>
+      <thead><tr><th>对比维度</th><th>全进口方案</th><th>中国供应链方案</th><th>成本节省</th></tr></thead>
+      <tbody>
+        <tr><td>整机物料成本(BOM)</td><td class="imp">~$13.1万美元</td><td class="save">~$4.6万美元</td><td class="save">↓65%</td></tr>
+        <tr><td>行星滚柱丝杠(14根)</td><td class="imp">¥70,000+ (Rollvis¥5000+/根)</td><td class="save">¥6,986 (双林股份¥499/根)</td><td class="save">↓90%</td></tr>
+        <tr><td>谐波减速器(14个)</td><td class="imp">¥42,000 (哈默纳科¥3000+/个)</td><td class="save">¥14,000 (绿的谐波¥1000/个)</td><td class="save">↓67%</td></tr>
+        <tr><td>无框力矩电机(28个)</td><td class="imp">~¥67,200 (进口¥2400+/个)</td><td class="save">~¥25,200 (步科股份¥900/个)</td><td class="save">↓63%</td></tr>
+        <tr><td>空心杯电机(12个)</td><td class="imp">~¥26,376 (Maxon¥2198/个)</td><td class="save">~¥11,952 (鸣志电器¥996/个)</td><td class="save">↓55%</td></tr>
+        <tr><td>六维力传感器(4个)</td><td class="imp">~¥80,000 (ATI¥20000/个)</td><td class="save">~¥24,000 (柯力传感¥6000/个)</td><td class="save">↓70%</td></tr>
+      </tbody>
+    </table>
+    <div class="src-row" style="margin-top:10px;">
+      <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" style="background:rgba(255,255,255,.1);color:#e8c766;border-color:rgba(230,196,102,.3);" target="_blank">🔗欧美vs中国成本差距</a>
+      <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" style="background:rgba(255,255,255,.1);color:#e8c766;border-color:rgba(230,196,102,.3);" target="_blank">🔗广发证券BOM报告</a>
+      <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenzhixingqichengben.html" style="background:rgba(255,255,255,.1);color:#e8c766;border-color:rgba(230,196,102,.3);" target="_blank">🔗中航证券执行器成本</a>
+      <a class="src-link" href="https://www.eefocus.com/article/2066704.html" style="background:rgba(255,255,255,.1);color:#e8c766;border-color:rgba(230,196,102,.3);" target="_blank">🔗EE Focus丝杠国产替代</a>
+    </div>
+  </div>
+
+  <h2><span class="icon">📊</span>逐环节采购指南：买什么找谁</h2>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">① 行星滚柱丝杠 — 单台用量最大、降本幅度最高</span>
+      <span class="badge badge-p0">占BOM 23-35%</span>
+    </div>
+    <table>
+      <thead><tr><th>供应商</th><th>单价</th><th>精度等级</th><th>产能状态</th><th>采购建议</th></tr></thead>
+      <tbody>
+        <tr><td class="save" style="color:var(--green);font-weight:700;">双林股份</td><td class="num">¥499/根</td><td>C3级</td><td class="num">十万套产线已投产</td><td class="gold-t">⭐性价比首选</td></tr>
+        <tr><td>五洲新春</td><td class="num">¥800-1200/根</td><td>C3-C5级</td><td class="num">15亿新产能8月验收</td><td>特斯拉验证，批量首选</td></tr>
+        <tr><td>北特科技</td><td class="num">¥1000-1500/根</td><td>C5级</td><td>中小批量</td><td>备选验证</td></tr>
+        <tr><td class="imp" style="color:var(--red);font-weight:600;">Rollvis(瑞士)</td><td class="danger">¥5000+/根</td><td>C0-C1级</td><td>交付3-6个月</td><td class="danger">仅高端场景对标</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">最优策略</span><span class="rec-name">双林股份(批量) + 五洲新春(验证过)</span><span class="rec-reason">双林价格仅进口1/10，五洲新春已有特斯拉量产验证背书，双源采购分散风险</span></div>
+    <div class="src-row">
+      <a class="src-link" href="https://www.toutiao.com/article/7592859312171647534/" target="_blank">🔗双林499元丝杠报道</a>
+      <a class="src-link" href="https://www.eefocus.com/article/2066704.html" target="_blank">🔗EE Focus国产替代分析</a>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">② 谐波减速器 — 国产已实现技术突破</span>
+      <span class="badge badge-p0">占BOM 6.6-16%</span>
+    </div>
+    <table>
+      <thead><tr><th>供应商</th><th>单价</th><th>寿命</th><th>市占率</th><th>采购建议</th></tr></thead>
+      <tbody>
+        <tr><td class="save" style="color:var(--green);font-weight:700;">绿的谐波</td><td class="num">¥800-1500/个</td><td class="num">5万小时(纳米涂层)</td><td class="num">国内~25%，全球7%</td><td class="gold-t">⭐首选主供</td></tr>
+        <tr><td>来福谐波</td><td class="num">¥700-1200/个</td><td>~1.5万小时</td><td>国内第二梯队</td><td>备选副供</td></tr>
+        <tr><td>中大力德</td><td class="num">¥600-1000/个</td><td>~1万小时</td><td>行星减速器为主</td><td>成本敏感场景</td></tr>
+        <tr><td class="imp" style="color:var(--red);font-weight:600;">哈默纳科(日本)</td><td class="danger">¥3000-5000/个</td><td>2万小时</td><td class="danger">全球~60%</td><td class="danger">仅高端对标</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">最优策略</span><span class="rec-name">绿的谐波独家绑定</span><span class="rec-reason">独占特斯拉Optimus约70%订单，寿命已超日本HD(5万h vs 2万h)，价格仅进口1/3</span></div>
+    <div class="src-row">
+      <a class="src-link" href="https://new.qq.com/rain/a/20260226A07B7R00" target="_blank">🔗绿的谐波2025年报</a>
+      <a class="src-link" href="https://xueqiu.com/9564153148/324194521" target="_blank">🔗雪球供应链梳理</a>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">③ 无框力矩电机 + 空心杯电机</span>
+      <span class="badge badge-p0">占BOM 10.6% + 3%</span>
+    </div>
+    <table>
+      <thead><tr><th>类型</th><th>国产首选</th><th>国产单价</th><th>进口标杆</th><th>进口单价</th><th>降幅</th></tr></thead>
+      <tbody>
+        <tr><td>无框力矩电机(28个)</td><td class="save" style="color:var(--green);">步科股份</td><td class="num">¥900/个</td><td>Kollmorgen(美)</td><td class="danger">¥2400+/个</td><td class="save">↓63%</td></tr>
+        <tr><td>空心杯电机(12个)</td><td class="save" style="color:var(--green);">鸣志电器</td><td class="num">¥996/个</td><td>Maxon(瑞士)</td><td class="danger">¥2198/个</td><td class="save">↓55%</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">最优策略</span><span class="rec-name">步科(电机) + 鸣志(灵巧手)</span><span class="rec-reason">步科Q1机器人收入+64.6%业绩兑现最佳；鸣志已通过特斯拉送样，全球唯一量产8mm空心杯</span></div>
+    <div class="src-row">
+      <a class="src-link" href="https://so.html5.qq.com/page/real/search_news?docid=70000021_5416a69b39373552" target="_blank">🔗步科Q1业绩</a>
+      <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗鸣志vs Maxon价格对比</a>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">④ 六维力/力矩传感器 — 国产化率最低，降本空间最大</span>
+      <span class="badge badge-p0">占BOM 19%</span>
+    </div>
+    <table>
+      <thead><tr><th>供应商</th><th>单价</th><th>精度</th><th>验证进度</th><th>采购建议</th></tr></thead>
+      <tbody>
+        <tr><td class="save" style="color:var(--green);font-weight:700;">柯力传感</td><td class="num">~¥6000/个</td><td>≤0.5% FS</td><td class="num">已送样华为/宇树</td><td class="gold-t">⭐国产首选</td></tr>
+        <tr><td>宇立仪器</td><td class="num">~¥5000/个</td><td>≤0.5% FS</td><td>工业级验证</td><td>备选</td></tr>
+        <tr><td class="imp" style="color:var(--red);font-weight:600;">ATI(美国)</td><td class="danger">~¥20000/个</td><td>≤0.25% FS</td><td class="danger">全球标杆</td><td class="danger">仅技术对标</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">最优策略</span><span class="rec-name">柯力传感(主供) + 保留ATI技术对标</span><span class="rec-reason">国产化率仅20%是六大P0环节差距最大者，柯力进展最快但精度仍差ATI一档，需并行验证</span></div>
+  </div>
+
+  <h2><span class="icon">💡</span>省钱汇总：一台机器人能省多少</h2>
+  <div class="gold-box">
+    <table>
+      <thead><tr><th>BOM项目</th><th>全进口成本</th><th>国产方案成本</th><th>单台节省</th></tr></thead>
+      <tbody>
+        <tr><td>行星滚柱丝杠(14根)</td><td>¥70,000</td><td class="num">¥6,986</td><td class="num">¥63,014</td></tr>
+        <tr><td>谐波减速器(14个)</td><td>¥42,000</td><td class="num">¥14,000</td><td class="num">¥28,000</td></tr>
+        <tr><td>无框力矩电机(28个)</td><td>¥67,200</td><td class="num">¥25,200</td><td class="num">¥42,000</td></tr>
+        <tr><td>空心杯电机(12个)</td><td>¥26,376</td><td class="num">¥11,952</td><td class="num">¥14,424</td></tr>
+        <tr><td>六维力传感器(4个)</td><td>¥80,000</td><td class="num">¥24,000</td><td class="num">¥56,000</td></tr>
+        <tr style="border-top:2px solid var(--navy);"><td><strong>五大件合计</strong></td><td><strong>¥285,576</strong></td><td class="num"><strong>¥82,138</strong></td><td class="num"><strong>¥203,438 (↓71%)</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;font-size:13px;"><strong>💡 结论：</strong>仅核心传动+感知部件，国产替代即可单台节省超¥20万。若全面国产化（含芯片/结构件/电池等），整机BOM可从进口方案约¥90万+压缩至¥30万以内。</p>
+    <div class="src-row">
+      <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗广发证券BOM成本拆解</a>
+      <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗中美成本差距完整报道</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 消费者指南 ============ -->
+<div class="page" id="page-consumer">
+  <div class="page-title">🛒 消费者购买指南</div>
+  <div class="page-sub">面向终端买家的价格梯队 · 选购建议 · ROI测算 · 供应链视角的"卖"建议</div>
+
+  <div class="highlight-box">
+    <p><strong>为什么需要这个模块？</strong>供应链决策不仅影响"怎么造"（成本/质量/交期），更直接决定"怎么卖"（定价/定位/目标客群）。本模块从消费者购买视角出发，反向验证供应链选型的商业合理性。</p>
+  </div>
+
+  <h2><span class="icon">🏷️</span>2026年人形机器人价格梯队</h2>
+
+  <div class="consumer-card" style="border-left:4px solid #166534;">
+    <span class="cc-tier cc-entry">入门尝鲜档 · 万元以内</span>
+    <h4 style="font-size:16px;color:var(--navy);margin:8px 0;">松延动力 Bumi — ¥9,998</h4>
+    <p class="dim">业内首款万元以下高性能人形机器人。使用复合材料兼顾轻量化与低成本，供应链几乎全搬现成方案。适合科技尝鲜、教育演示。</p>
+    <table>
+      <tbody>
+        <tr><td>能做什么</td><td>基础行走/演示/社交/娱乐动作</td></tr>
+        <tr><td>不能做什么</td><td>精细操作/重负载/复杂场景适配</td></tr>
+        <tr><td>供应链启示</td><td class="num">验证了"成熟供应链组装"路线的极限成本底线</td></tr>
+      </tbody>
+    </table>
+    <a class="src-link" href="https://new.qq.com/rain/a/20260616A01X3700" target="_blank">🔗价格暴跌报道</a>
+  </div>
+
+  <div class="consumer-card" style="border-left:4px solid #1e40af;">
+    <span class="cc-tier cc-main">消费级主力档 · 2-3万</span>
+    <h4 style="font-size:16px;color:var(--navy);margin:8px 0;">宇树 R1 系列 — ¥26,900-29,900</h4>
+    <p class="dim">目前销量最大的价格带。能完成基础抓取/搬运/交互，对标消费级服务机器人。2026年5月从¥3.9万降至¥2.99万。</p>
+    <table>
+      <tbody>
+        <tr><td>能做什么</td><td>基础抓取/搬运/语音交互/编程教育</td></tr>
+        <tr><td>不能做什么</td><td>长时间自主工作/复杂精细操作</td></tr>
+        <tr><td>供应链启示</td><td class="num">旋转执行器全部来自成熟供应商，线性执行器精简，体现"够用就行"的成本哲学</td></tr>
+      </tbody>
+    </table>
+    <a class="src-link" href="https://new.qq.com/rain/a/20260618A068YB00" target="_blank">🔗宇树降价报道</a>
+  </div>
+
+  <div class="consumer-card" style="border-left:4px solid #92400e;">
+    <span class="cc-tier cc-pro">进阶专业档 · 8-13万</span>
+    <h4 style="font-size:16px;color:var(--navy);margin:8px 0;">宇树 G1 ¥85,000 / 优必选 U1 ¥119,800起 / 星尘智能 T1 ¥89,900</h4>
+    <p class="dim">全尺寸仿生人形，配备灵巧手和全套传感器。优必选U1预售10天订单破1.3万台（2025全年10倍），9月16日启动交付。这是消费者市场正式启动的标志。</p>
+    <table>
+      <tbody>
+        <tr><td>能做什么</td><td>全尺寸仿生运动/灵巧手操作/多场景适配</td></tr>
+        <tr><td>不能做什么</td><td>完全自主的家庭服务（仍需持续迭代）</td></tr>
+        <tr><td>供应链启示</td><td class="num">核心零部件成本占比仍高达70%+，降本依赖规模化和国产替代进度</td></tr>
+      </tbody>
+    </table>
+    <a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗优必选U1发布会</a>
+    <a class="src-link" href="https://www.toutiao.com/article/7664908864621396480" target="_blank">🔗价格梯队完整分析</a>
+  </div>
+
+  <div class="consumer-card" style="border-left:4px solid #991b1b;">
+    <span class="cc-tier cc-flag">旗舰工业档 · 25-100万+</span>
+    <h4 style="font-size:16px;color:var(--navy);margin:8px 0;">特斯拉 Optimus V3 ~$4-5万 / Agility Digit ~$25万</h4>
+    <p class="dim">工业级部署，面向工厂/仓储/物流场景。特斯拉Optimus试产成本$4-5万，长期目标$2万以内。美国Agility Digit售价高达$25万——这就是中美供应链差距的直接体现。</p>
+    <table>
+      <tbody>
+        <tr><td>能做什么</td><td>全天候工业作业/分拣/搬运/精密装配</td></tr>
+        <tr><td>不能做什么</td><td>仍需场景定制部署，尚未完全通用化</td></tr>
+        <tr><td>供应链启示</td><td class="num">中国供应链68% BOM占比是Optimus降至$2万目标的关键前提</td></tr>
+      </tbody>
+    </table>
+    <a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗赛迪网量产元年报道</a>
+    <a class="src-link" href="https://grabarobot.com/blog/humanoid-robot-bill-of-materials-cost-2026" target="_blank">🔗GrabaRobot BOM分析</a>
+  </div>
+
+  <h2><span class="icon">📈</span>消费者ROI测算：买一台机器人多久能回本？</h2>
+  <div class="gold-box">
+    <table>
+      <thead><tr><th>场景</th><th>机器人购置</th><th>替代人力年薪</th><th>回本周期</th><th>年节省</th></tr></thead>
+      <tbody>
+        <tr><td>工厂分拣(24h×3班)</td><td>¥12万(优必选U1)</td><td>¥18万(3人×¥6万)</td><td class="num">~8个月</td><td class="num">¥6万</td></tr>
+        <tr><td>仓储搬运(12h)</td><td>¥8.5万(宇树G1)</td><td>¥7万(1.5人)</td><td class="num">~15个月</td><td class="num">¥1.5万</td></tr>
+        <tr><td>商场展示/迎宾</td><td>¥3万(宇树R1)</td><td>¥5万(1人)</td><td class="num">~7个月</td><td class="num">¥2万</td></tr>
+        <tr><td>教育/研发</td><td>¥1万(松延Bumi)</td><td>—</td><td class="warn">非替代逻辑</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;font-size:13px;"><strong>💡 结论：</strong>工业场景7-15个月即可回本，已具备经济可行性。消费场景仍处于"尝鲜"阶段，需等BOM成本降至¥3-5万（预计2027-2028年）才能进入家庭。</p>
+    <a class="src-link" href="https://m.toutiao.com/article/7634165389143851535" target="_blank">🔗生产维护成本分析</a>
+  </div>
+
+  <h2><span class="icon">🔄</span>"卖"的视角：供应链如何支撑定价策略</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h4>低价策略 → 供应链要求</h4>
+      <p class="dim">要卖¥3万以下，必须：① 旋转执行器全用成熟供应商(绿的/步科) ② 砍掉线性执行器或降级方案 ③ 传感器最小化配置 ④ 结构件用复合材料替代碳纤维。</p>
+      <p class="dim" style="margin-top:6px;"><strong>标杆：</strong>松延Bumi(¥9998)——供应链几乎全搬现成方案，验证极限成本。</p>
+    </div>
+    <div class="card">
+      <h4>高价策略 → 供应链要求</h4>
+      <p class="dim">要卖¥10万+，必须：① 全套六维力传感器(柯力/ATI) ② 灵巧手12+DOF(兆威/鸣志) ③ 端侧AI芯片≥500TOPS(昇腾/Orin) ④ 高精度丝杠(C3级以上)。</p>
+      <p class="dim" style="margin-top:6px;"><strong>标杆：</strong>优必选U1(¥11.98万起)——全尺寸+灵巧手+多传感器，供应链成本占比70%+。</p>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <p><strong>⚠️ 消费者洞察：</strong>据2026年市场反馈，优必选U1发布会现场"反响不及预告片热烈"，消费者评价"十几万的赛博聊天搭子？我的手机和音箱够用了"。说明<strong>当前阶段人形机器人的核心瓶颈不在硬件成本，而在应用场景的不可替代性</strong>。供应链降本是必要条件，但消费者买单的充分条件是"它能做的事我别的东西做不了"。</p>
+    <a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗OFweek深度报道</a>
   </div>
 </div>
 
@@ -727,6 +1120,10 @@ td .src-link{margin-left:4px;}
 
   <div class="version-log">
     <div class="vlog-item">
+      <span class="vlog-ver">V2.0</span><span class="vlog-date">2026-08-27</span>
+      <p style="margin-top:6px;">新增三大模块：① <strong>💰成本对比</strong>——国产vs进口逐件价格对比，核心数据：全进口$13.1万→中国方案$4.6万(↓65%)，五大件单台节省¥20万+。② <strong>🛒消费者指南</strong>——四档价格梯队(¥9998→$25万+)、ROI测算、买卖双向供应链策略。③ <strong>📢版本动态</strong>——以版本号维度记录每次更新，支持历史版本切换。同步修复首页白底问题(改为深色渐变卡片)，核心数据全面刷新(IDC 5.1万台/双林499元丝杠/优必选U1订单1.3万+)，引入6份外部研究报告交叉验证。</p>
+    </div>
+    <div class="vlog-item">
       <span class="vlog-ver">V1.0</span><span class="vlog-date">2026-08-13</span>
       <p style="margin-top:6px;">首个版本发布。整合《供应链分析.md》执行指令框架 + 近7日行业最新动态（宇树科创板上市/智元反超宇树登顶/特斯拉Optimus V3产线投产国产化率68%/自变量机器人分拣纪录）。完成六大P0环节首选供应商结论、技术门槛体系、六维度评分模型、合规标准清单、四链交叉分析、成本路径建模、18个月路线图。</p>
     </div>
@@ -780,19 +1177,15 @@ tabs.forEach(t=>{
 document.querySelectorAll('.toc-item').forEach(item=>{
   item.addEventListener('click', ()=> showPage(item.dataset.goto));
 });
-</script>
-</body>
-</html>
-('active');
-  const tab = document.querySelector('.navtab[data-page="'+id+'"]');
-  if(tab) tab.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-tabs.forEach(t=>{
-  t.addEventListener('click', ()=> showPage(t.dataset.page));
-});
-document.querySelectorAll('.toc-item').forEach(item=>{
-  item.addEventListener('click', ()=> showPage(item.dataset.goto));
+// 版本切换器
+document.querySelectorAll('.ver-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.ver-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.ver-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById('ver-panel-'+btn.dataset.ver);
+    if(panel) panel.classList.add('active');
+  });
 });
 </script>
 </body>
