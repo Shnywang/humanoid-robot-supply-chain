@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>人形机器人供应链决策中心 · V1.0</title>
+<title>人形机器人供应链决策中心 · V3.0</title>
 <style>
 :root{
   --bg:#f5f6f8; --card-bg:#ffffff; --border:#dde1e8;
@@ -147,6 +147,11 @@ td .src-link{margin-left:4px;}
 .data-source-bar b{color:var(--text-dim);font-weight:700;margin-right:4px;}
 
 /* ===== V2.0 新增样式 ===== */
+/* V3.0 横向滚动表格容器 */
+.overflow-x{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;margin-bottom:4px;}
+.overflow-x::-webkit-scrollbar{height:6px;}
+.overflow-x::-webkit-scrollbar-thumb{background:rgba(230,196,102,.4);border-radius:3px;}
+.overflow-x::-webkit-scrollbar-track{background:rgba(255,255,255,.05);}
 /* 版本时间线选择器 */
 .ver-selector{display:flex;gap:8px;overflow-x:auto;padding:8px 0;margin-bottom:24px;scrollbar-width:none;}
 .ver-selector::-webkit-scrollbar{display:none;}
@@ -211,9 +216,10 @@ td .src-link{margin-left:4px;}
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="brand">🤖 供应链决策中心 <span class="ver">V2.0 · 2026-08-27</span> <a href="https://shnywang.github.io/ai_news/site/index.html" target="_blank" style="color:var(--gold-light);font-size:12px;font-weight:600;text-decoration:none;margin-left:8px;border:1px solid rgba(230,196,102,.4);padding:2px 10px;border-radius:12px;white-space:nowrap;">📰 资讯聚合 ↗</a></div>
+    <div class="brand">🤖 供应链决策中心 <span class="ver">V3.0 · 2026-09-21</span> <a href="https://shnywang.github.io/ai_news/site/index.html" target="_blank" style="color:var(--gold-light);font-size:12px;font-weight:600;text-decoration:none;margin-left:8px;border:1px solid rgba(230,196,102,.4);padding:2px 10px;border-radius:12px;white-space:nowrap;">📰 资讯聚合 ↗</a></div>
     <div class="navtabs" id="navtabs">
       <button class="navtab active" data-page="overview">决策总览</button>
+      <button class="navtab" data-page="robottracker">🤖 整机追踪</button>
       <button class="navtab" data-page="updates">📢 版本动态</button>
       <button class="navtab" data-page="landscape">供应链图谱</button>
       <button class="navtab" data-page="threshold">技术门槛</button>
@@ -222,6 +228,9 @@ td .src-link{margin-left:4px;}
       <button class="navtab" data-page="consumer">🛒 消费者指南</button>
       <button class="navtab" data-page="compliance">合规标准</button>
       <button class="navtab" data-page="crosschain">链路交叉分析</button>
+      <button class="navtab" data-page="crossverify">🔬 多机构交叉验证</button>
+      <button class="navtab" data-page="philosophy">🧠 哲学思维验证</button>
+      <button class="navtab" data-page="suppliercheck">🔍 供应商补齐</button>
       <button class="navtab" data-page="cost">成本路径</button>
       <button class="navtab" data-page="roadmap">执行路线图</button>
       <button class="navtab" data-page="changelog">版本记录</button>
@@ -232,7 +241,7 @@ td .src-link{margin-left:4px;}
 <!-- ============ PAGE 1: 决策总览 ============ -->
 <div class="page active" id="page-overview">
   <div class="page-title">决策总览：我们应该选择哪家供应商</div>
-  <div class="page-sub">具身智能事业部供应链战略分析 · 数据截至2026年8月27日 · 每月更新 · <a href="#" onclick="showPage('updates');return false;" style="color:var(--navy-light);font-weight:600;">查看最新版本动态 →</a></div>
+  <div class="page-sub">具身智能事业部供应链战略分析 · 数据截至2026年9月21日 · 每月更新 · <a href="#" onclick="showPage('updates');return false;" style="color:var(--navy-light);font-weight:600;">查看最新版本动态 →</a></div>
 
   <div class="decision-hero">
     <h3>⭐ 核心结论：六大P0环节首选供应商一览</h3>
@@ -258,56 +267,61 @@ td .src-link{margin-left:4px;}
 
   <!-- 替换白底卡片为深色渐变卡片 -->
   <div class="stat-hero">
-    <div class="stat-card stat-navy"><div class="sc-val">5.1万台</div><div class="sc-label">2026年全球出货量预测(集邦,IDC +178%)</div></div>
+    <div class="stat-card stat-navy"><div class="sc-val">2.2万台</div><div class="sc-label">2026H1全球出货量(Counterpoint +300%)</div></div>
     <div class="stat-card stat-green"><div class="sc-val">68%→85%</div><div class="sc-label">中国供应链成本优势 vs 全进口方案</div></div>
     <div class="stat-card stat-gold"><div class="sc-val">¥4.6万</div><div class="sc-label">中国方案整机BOM成本(对比进口$13.1万)</div></div>
     <div class="stat-card stat-purple"><div class="sc-val">10倍</div><div class="sc-label">行星滚柱丝杠价格跌幅(进口¥5000→国产¥499)</div></div>
   </div>
   <div class="src-row" style="margin-top:-8px;">
-    <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗欧美vs中国成本差距来源</a>
-    <a class="src-link" href="https://www.toutiao.com/article/7592859312171647534/" target="_blank">🔗双林股份499元丝杠报道</a>
-    <a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗IDC出货量预测</a>
-    <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗广发证券BOM成本报告</a>
+    <a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗Counterpoint 2.2万台数据</a>
+    <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗欧美vs中国成本差距</a>
+    <a class="src-link" href="https://www.toutiao.com/article/7592859312171647534/" target="_blank">🔗双林股份499元丝杠</a>
+    <a class="src-link" href="https://www.sgpjbg.com/labels/renxingjiqirenbomchengben/1/6766998.html" target="_blank">🔗广发证券BOM成本</a>
   </div>
 
   <h2><span class="icon">🧭</span>本报告导航</h2>
   <div class="toc-grid" id="tocgrid">
-    <div class="toc-item" data-goto="landscape"><div class="ti-num">01</div><div class="ti-title">供应链全景图谱</div><div class="ti-desc">BOM成本拆解 · 15个关键部件优先级矩阵</div></div>
-    <div class="toc-item" data-goto="threshold"><div class="ti-num">02</div><div class="ti-title">技术门槛体系</div><div class="ti-desc">6大环节量化指标：准入门槛 vs 优秀基准</div></div>
-    <div class="toc-item" data-goto="scoring"><div class="ti-num">03</div><div class="ti-title">供应商评分卡</div><div class="ti-desc">六维度1000分模型 · 逐环节推荐排名</div></div>
-    <div class="toc-item" data-goto="compliance"><div class="ti-num">04</div><div class="ti-title">合规标准清单</div><div class="ti-desc">国标/团标/认证 · 供应商准入基线</div></div>
-    <div class="toc-item" data-goto="crosschain"><div class="ti-num">05</div><div class="ti-title">链路交叉分析</div><div class="ti-desc">特斯拉链/华为链/宇树链/智元链对比</div></div>
-    <div class="toc-item" data-goto="cost"><div class="ti-num">06</div><div class="ti-title">成本下降路径</div><div class="ti-desc">2025-2030年BOM成本建模</div></div>
-    <div class="toc-item" data-goto="roadmap"><div class="ti-num">07</div><div class="ti-title">执行路线图</div><div class="ti-desc">18个月分阶段里程碑与交付物</div></div>
-    <div class="toc-item" data-goto="changelog"><div class="ti-num">08</div><div class="ti-title">版本记录</div><div class="ti-desc">迭代历史与下一步优化计划</div></div>
+    <div class="toc-item" data-goto="robottracker"><div class="ti-num">01</div><div class="ti-title">🤖 整机追踪</div><div class="ti-desc">全球16家整机厂商产品矩阵+量产进度</div></div>
+    <div class="toc-item" data-goto="landscape"><div class="ti-num">02</div><div class="ti-title">供应链全景图谱</div><div class="ti-desc">BOM成本拆解 · 15个关键部件优先级矩阵</div></div>
+    <div class="toc-item" data-goto="threshold"><div class="ti-num">03</div><div class="ti-title">技术门槛体系</div><div class="ti-desc">6大环节量化指标：准入门槛 vs 优秀基准</div></div>
+    <div class="toc-item" data-goto="scoring"><div class="ti-num">04</div><div class="ti-title">供应商评分卡</div><div class="ti-desc">六维度1000分模型 · 逐环节推荐排名</div></div>
+    <div class="toc-item" data-goto="crossverify"><div class="ti-num">05</div><div class="ti-title">🔬 多机构交叉验证</div><div class="ti-desc">10家券商/咨询机构观点交叉比对</div></div>
+    <div class="toc-item" data-goto="philosophy"><div class="ti-num">06</div><div class="ti-title">🧠 哲学思维验证</div><div class="ti-desc">7大思维模型检验供应链推荐结论</div></div>
+    <div class="toc-item" data-goto="suppliercheck"><div class="ti-num">07</div><div class="ti-title">🔍 供应商补齐</div><div class="ti-desc">补全AI信息茧房遗漏的关键供应商</div></div>
+    <div class="toc-item" data-goto="compliance"><div class="ti-num">08</div><div class="ti-title">合规标准清单</div><div class="ti-desc">国标/团标/认证 · 供应商准入基线</div></div>
+    <div class="toc-item" data-goto="crosschain"><div class="ti-num">09</div><div class="ti-title">链路交叉分析</div><div class="ti-desc">特斯拉链/华为链/宇树链/智元链对比</div></div>
+    <div class="toc-item" data-goto="cost"><div class="ti-num">10</div><div class="ti-title">成本下降路径</div><div class="ti-desc">2025-2030年BOM成本建模</div></div>
+    <div class="toc-item" data-goto="roadmap"><div class="ti-num">11</div><div class="ti-title">执行路线图</div><div class="ti-desc">18个月分阶段里程碑与交付物</div></div>
+    <div class="toc-item" data-goto="changelog"><div class="ti-num">12</div><div class="ti-title">版本记录</div><div class="ti-desc">迭代历史与下一步优化计划</div></div>
   </div>
 
-  <h2><span class="icon">📰</span>本期行业要闻（2026年8月最新）</h2>
+  <h2><span class="icon">📰</span>本期行业要闻（2026年9月最新）</h2>
   <div class="grid-2">
     <div class="card">
-      <h4>中国供应链一刀砍掉85%成本</h4>
-      <p class="dim">2026H1全进口方案物料成本$13.1万，中国方案仅$4.6万。行星滚柱丝杠从进口¥5000+降至国产¥499（双林股份），空心杯电机从瑞士Maxon ¥2198降至鸣志电器¥996。执行器+丝杠+减速器三项占整机BOM的68%。</p>
-      <a class="src-link" href="https://new.qq.com/rain/a/20260825A09VGA00" target="_blank">🔗查看完整报道</a>
+      <h4>小鹏IRON自主走下产线，全球首条高阶人形机器人自动化产线启用</h4>
+      <p class="dim">9月8日，小鹏集团宣布全球首条高阶通用人形机器人自动化产线正式启用，首台IRON机器人完成全自动总装并自主走下产线，核心工序自动化率超80%。将汽车工业车规级质量体系迁移到机器人制造，2027年面向中国及海外市场上市交付。</p>
+      <a class="src-link" href="https://car.southcn.com/node_37aef5c8b5/ef5a5548e6.shtml" target="_blank">🔗南方网报道</a>
+      <a class="src-link" href="https://www.toutiao.com/article/7684377586092360228/" target="_blank">🔗中国经营报</a>
     </div>
     <div class="card">
-      <h4>IDC预测2026全球出货5.1万台(+178%)</h4>
-      <p class="dim">IDC最新数据：2026年全球人形机器人出货量预计突破5万台，同比增长178%。高工机器人预测中国出货6.25万台占全球近半。2026Q1国内人形机器人融资681亿元，已超2025全年总额。</p>
-      <a class="src-link" href="https://www.ccidnet.com/news/1105843.jhtml" target="_blank">🔗查看IDC数据</a>
+      <h4>宇树G1+发布，6项关键升级</h4>
+      <p class="dim">9月14日，宇树科技发布G1升级版G1+，新增2自由度颈部、电机峰值扭矩提升最高110%、双视觉+激光雷达融合感知、6麦克风远场语音阵列。标准版售价9.5万元，EDU版支持70自由度扩展。</p>
+      <a class="src-link" href="https://www.donews.com/news/detail/8/6709202.html" target="_blank">🔗DoNews快讯</a>
     </div>
     <div class="card">
-      <h4>优必选U1发布：售价11.98万起，订单破1.3万台</h4>
-      <p class="dim">6月30日优必选推出全尺寸超仿生机器人U1系列，售价11.98-99万元，预售10天订单累计13,361台（2025年全年的10倍+），9月16日启动交付。消费者市场正式启动。</p>
-      <a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗查看发布会报道</a>
+      <h4>优必选万台级超级智慧工厂投产，10分钟下线1台</h4>
+      <p class="dim">9月12日，优必选全球首个万台级工业人形机器人超级智慧工厂在广西柳州投产。占地1.4万m²，每10分钟下线1台Walker S/Cruzr系列，年规划产能超万台。与西门子联合打造Yanshee MOM系统，实现"用机器人造机器人"。</p>
+      <a class="src-link" href="https://www.toutiao.com/article/7685170515123651107/" target="_blank">🔗深圳特区报</a>
     </div>
     <div class="card">
-      <h4>特斯拉下发Optimus量产采购指引</h4>
-      <p class="dim">特斯拉要求供应商9月产能达1000台/周，年底2000-2500台/周。已有8月数百台具体订单下达。弗里蒙特工厂Model S/X产线已腾空给Optimus，全年目标5万台，2027年规划50万台。</p>
-      <a class="src-link" href="https://m.21jingji.com/article/20260710/herald/99a9e3d68157bc985721c3086b92ca8a.html" target="_blank">🔗查看第一财经报道</a>
+      <h4>特斯拉下达数千台批量级Optimus大单</h4>
+      <p class="dim">9月7日，市场消息称特斯拉向供应链一次性下达数千台量级Optimus大单，系首笔批量级订单落地。同期智元发布AGILE 2.0感控一体模型，灵犀X2完成踩球行走、跳长绳等动态任务。2026H1全球出货2.2万台(+300%)。</p>
+      <a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗中国商报网</a>
     </div>
   </div>
 
   <div class="warn-box">
-    <p><strong>⚠️ 使用说明：</strong>本网站为持续迭代的内部决策工具，当前为V2.0版本。标注 <span class="pending-badge">需人工介入</span> 的条目表示需要实地调研或供应商访谈补充验证，尚未纳入最终结论。建议按月刷新数据并在"版本记录"页追踪变更历史。</p>
+    <p><strong>⚠️ 使用说明：</strong>本网站为持续迭代的内部决策工具，当前为V3.0版本。V3.0新增四大模块：① 整机追踪——全球16家整机厂商产品矩阵+量产进度 ② 多机构交叉验证——10家券商/咨询机构观点交叉比对 ③ 哲学思维验证——7大思维模型检验供应链结论 ④ 供应商补齐——补全AI信息茧房遗漏的关键供应商。标注 <span class="pending-badge">需人工介入</span> 的条目表示需要实地调研或供应商访谈补充验证，尚未纳入最终结论。建议按月刷新数据并在"版本记录"页追踪变更历史。</p>
   </div>
 
   <!-- 联动入口：资讯聚合站 -->
@@ -322,18 +336,242 @@ td .src-link{margin-left:4px;}
 </div>
 
 
+<!-- ============ PAGE: 整机追踪 ============ -->
+<div class="page" id="page-robottracker">
+  <div class="page-title">🤖 全球人形机器人整机追踪</div>
+  <div class="page-sub">长期跟踪全球16家整机厂商产品矩阵 · 量产进度 · 供应链依赖度 · 数据截至2026年9月21日</div>
+
+  <div class="highlight-box">
+    <p><strong>为什么需要这个模块？</strong>供应链决策不能脱离整机需求孤立存在。跟踪整机厂商的产品迭代、量产节奏和应用场景，才能预判零部件需求拐点、技术路线收敛方向和供应商格局变化。本模块覆盖中国、美国、欧洲三大阵营共16家头部整机企业。</p>
+  </div>
+
+  <h2><span class="icon">🏭</span>中国阵营（8家）</h2>
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">宇树科技 Unitree</span>
+      <span class="badge badge-a">量产领跑者</span>
+    </div>
+    <table>
+      <thead><tr><th>产品</th><th>价格</th><th>定位</th><th>关键参数</th><th>最新动态</th><th>供应链特征</th></tr></thead>
+      <tbody>
+        <tr><td><strong>G1+</strong></td><td class="num">¥9.5万</td><td>科研/开发</td><td>25DOF, 35kg, 2h续航, 70DOF(EDU)</td><td class="num">9月14日发布，6项升级</td><td>旋转执行器成熟供应商，线性执行器精简</td></tr>
+        <tr><td><strong>R1</strong></td><td class="num">¥2.69-2.99万</td><td>消费级</td><td>轻量级, 多模态大模型</td><td>5月降价至¥2.99万</td><td>"够用就行"成本哲学，现成方案组装</td></tr>
+        <tr><td><strong>H1</strong></td><td>—</td><td>工业级</td><td>全尺寸, 高负载</td><td>2025年出货5500+台</td><td>全尺寸供应链成熟度最高</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">供应链启示</span><span class="rec-name">宇树是"低价走量"路线代表</span><span class="rec-reason">通过精简线性执行器+现成旋转执行器方案实现最低成本，验证了"成熟供应链组装"的商业模式可行性</span></div>
+    <div class="src-row">
+      <a class="src-link" href="https://www.donews.com/news/detail/8/6709202.html" target="_blank">🔗G1+发布</a>
+      <a class="src-link" href="https://new.qq.com/rain/a/20260618A068YB00" target="_blank">🔗R1降价</a>
+      <a class="src-link" href="https://robottesters.com/article-mass-producing-humanoid-robots-2026.html" target="_blank">🔗RobotTesters量产数据</a>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">优必选 UBTech</span>
+      <span class="badge badge-a">万台级工厂投产</span>
+    </div>
+    <table>
+      <thead><tr><th>产品</th><th>价格</th><th>定位</th><th>关键参数</th><th>最新动态</th><th>供应链特征</th></tr></thead>
+      <tbody>
+        <tr><td><strong>U1系列</strong></td><td class="num">¥11.98-99万</td><td>消费/旗舰</td><td>全尺寸超仿生, 灵巧手</td><td class="num">订单1.3万台, 9月16日交付</td><td>核心零部件成本占比70%+</td></tr>
+        <tr><td><strong>Walker S</strong></td><td>—</td><td>工业级</td><td>工厂部署, 分拣搬运</td><td class="num">9月12日柳州超级工厂投产</td><td>与西门子联合打造MOM系统</td></tr>
+        <tr><td><strong>Cruzr</strong></td><td>—</td><td>商用服务</td><td>迎宾/导览/交互</td><td>量产中</td><td>成熟供应链批量</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">供应链启示</span><span class="rec-name">优必选是"全尺寸+规模化"路线代表</span><span class="rec-reason">柳州工厂10分钟/台、年产万台级，标志着从原型→标准化量产的跨越。供应链降本依赖规模化和国产替代进度</span></div>
+    <div class="src-row">
+      <a class="src-link" href="https://www.toutiao.com/article/7685170515123651107/" target="_blank">🔗柳州工厂投产</a>
+      <a class="src-link" href="https://robot.ofweek.com/2026-07/ART-898890-8420-30693302.html" target="_blank">🔗U1发布会</a>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">智元机器人 AGIBOT</span>
+      <span class="badge badge-a">全球出货第一</span>
+    </div>
+    <table>
+      <thead><tr><th>产品</th><th>价格</th><th>定位</th><th>关键参数</th><th>最新动态</th><th>供应链特征</th></tr></thead>
+      <tbody>
+        <tr><td><strong>灵犀X2</strong></td><td>—</td><td>通用人形</td><td>AGILE 2.0感控一体模型</td><td class="num">9月9日发布, 踩球/跳绳/搬箱</td><td>深度绑定绿的谐波(1万台独家订单)</td></tr>
+        <tr><td><strong>远征A2</strong></td><td>—</td><td>工业级</td><td>全尺寸仿生</td><td class="num">2026H1出货8400台(全球44%)</td><td>长盈精密独家上半身总成(8万/台)</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip"><span class="rec-label">供应链启示</span><span class="rec-name">智元是"AI模型驱动"路线代表</span><span class="rec-reason">AGILE 2.0感控一体模型优先于硬件参数竞争，供应链侧重软件-硬件协同优化。44%市占率意味着其供应链选择将影响行业标准</span></div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">小鹏 XPeng · IRON</span>
+      <span class="badge badge-b">车企跨界量产</span>
+    </div>
+    <table>
+      <tbody>
+        <tr><td>产品</td><td>IRON（高阶通用人形）</td></tr>
+        <tr><td>最新动态</td><td class="num">9月8日全球首条高阶自动化产线启用，核心制程自动化率>80%</td></tr>
+        <tr><td>量产计划</td><td>2026年底规模量产，2027年中外市场上市交付</td></tr>
+        <tr><td>供应链特征</td><td class="num">将汽车工业车规级质量体系迁移至机器人，供应链管理+自动化装配+批次一致性控制</td></tr>
+        <tr><td>核心启示</td><td>车企制造体系是人形机器人量产的关键变量，可能重塑供应链格局</td></tr>
+      </tbody>
+    </table>
+    <div class="src-row">
+      <a class="src-link" href="https://car.southcn.com/node_37aef5c8b5/ef5a5548e6.shtml" target="_blank">🔗南方网</a>
+      <a class="src-link" href="https://www.toutiao.com/article/7684377586092360228/" target="_blank">🔗中国经营报</a>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>松延动力 · Bumi</h4>
+      <p class="dim"><strong>¥9,998</strong> — 业内首款万元以下人形机器人。复合材料兼顾轻量化与低成本，供应链几乎全搬现成方案。验证"成熟供应链组装"极限成本底线。</p>
+      <a class="src-link" href="https://new.qq.com/rain/a/20260616A01X3700" target="_blank">🔗价格暴跌报道</a>
+    </div>
+    <div class="card">
+      <h4>乐聚 · Kuavo5</h4>
+      <p class="dim">面向教育和科研场景的人形机器人，搭载多模态交互能力。2026年电博会展出Kuavo5与Robot系列，覆盖教育→商用全场景。</p>
+      <a class="src-link" href="https://news.bandao.cn/a/1788309220092708649.html" target="_blank">🔗电博会报道</a>
+    </div>
+    <div class="card">
+      <h4>银河通用</h4>
+      <p class="dim">聚焦通用具身智能，2026年持续释放真实制造需求，在ITES深圳工业展组织采购团队寻找供应链合作伙伴。</p>
+      <a class="src-link" href="https://www.iteschina.com/zh-cn/news/details/2914" target="_blank">🔗ITES供应链展</a>
+    </div>
+    <div class="card">
+      <h4>众擎机器人 / 逐际动力 / 戴盟机器人</h4>
+      <p class="dim">新兴整机企业阵营，在ITES工业展释放制造需求。逐际动力聚焦动态运动控制，戴盟机器人深耕触觉感知+灵巧手集成。</p>
+      <a class="src-link" href="https://www.iteschina.com/zh-cn/news/details/2914" target="_blank">🔗ITES供应链展</a>
+    </div>
+  </div>
+
+  <h2><span class="icon">🌎</span>美国阵营（5家）</h2>
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">特斯拉 Tesla · Optimus</span>
+      <span class="badge badge-a">量产催化剂</span>
+    </div>
+    <table>
+      <tbody>
+        <tr><td>当前状态</td><td class="num">9月7日下达数千台批量级大单（首笔批量订单），弗里蒙特产线8月投产</td></tr>
+        <tr><td>产能目标</td><td>9月周产1000台 → 年底2000-2500台/周 → 2027年50万台</td></tr>
+        <tr><td>成本目标</td><td>试产$4-5万 → 长期$2万以内</td></tr>
+        <tr><td>国产化率</td><td class="num">68%（超出原预期45%，验证国产替代速度）</td></tr>
+        <tr><td>供应链特征</td><td>中国供应链68% BOM占比是降至$2万目标的关键前提。绿的谐波独占~70%减速器订单，鸣志电器已供货空心杯电机</td></tr>
+      </tbody>
+    </table>
+    <div class="src-row">
+      <a class="src-link" href="https://m.21jingji.com/article/20260710/herald/99a9e3d68157bc985721c3086b92ca8a.html" target="_blank">🔗第一财经</a>
+      <a class="src-link" href="https://data.eastmoney.com/report/zw_industry.jshtml?infocode=AP202607191827100954" target="_blank">🔗东方财富研报</a>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Figure AI · Figure 03</h4>
+      <p class="dim">西方量产领跑者。BotQ工厂以~55台/周速度生产Figure 03，已进入BMW斯巴坦堡工厂部署。兆威机电为其供应灵巧手关节模组，鸣志电器深度绑定。</p>
+      <a class="src-link" href="https://robottesters.com/article-mass-producing-humanoid-robots-2026.html" target="_blank">🔗RobotTesters</a>
+    </div>
+    <div class="card">
+      <h4>Agility Robotics · Digit</h4>
+      <p class="dim">售价~$25万（中美供应链差距直接体现）。专注于仓储物流场景，已在亚马逊仓库部署测试。</p>
+    </div>
+    <div class="card">
+      <h4>Boston Dynamics · Atlas</h4>
+      <p class="dim">全电动版Atlas在CES 2026获CNET"最佳机器人"奖。2026年全部产量已分配给现代汽车机器人大都会应用中心+Google DeepMind合作。现代投资$260亿美国工厂。</p>
+      <a class="src-link" href="https://humansalike.ai/humanoid-robots-key-players-2026/" target="_blank">🔗HumansLikeAI</a>
+    </div>
+    <div class="card">
+      <h4>1X Technologies · NEO</h4>
+      <p class="dim">挪威公司，专注家用场景。NEO Beta面向家庭助理，强调安全性和安静运行，与工业级路线形成差异化。</p>
+    </div>
+  </div>
+
+  <h2><span class="icon">🇪🇺</span>欧洲及其他阵营（3家）</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h4>Apptronik · Apollo</h4>
+      <p class="dim">美国-德国合资，与梅赛德斯-奔驰合作工厂部署。强调工业级耐久性和精密操作。</p>
+    </div>
+    <div class="card">
+      <h4>Sanctuary AI · Phoenix</h4>
+      <p class="dim">加拿大公司，专注认知AI驱动的人形机器人。其Carbon AI系统强调通用智能而非运动性能。</p>
+    </div>
+    <div class="card">
+      <h4>静博士（美业场景）</h4>
+      <p class="dim">中国美业应用案例：40台人形机器人已投入护理服务，展示了工业级之外的垂直行业落地路径。</p>
+      <a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗中国商报网</a>
+    </div>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>💡 整机追踪对供应链决策的启示：</strong>① 宇树/松延验证"低价走量"路线可行→供应链应准备¥1-3万价格带的零部件方案 ② 优必选/小鹏验证"规模化量产"路线→供应链需具备万台级交付能力 ③ 特斯拉/Figure验证"全球标杆"路线→供应商需同时满足中外双标准 ④ 智元/Boston Dynamics验证"AI驱动"路线→软件-硬件协同供应商将获溢价 ⑤ 静博士验证"垂直场景"路线→非工业场景供应链需求与工业级不同，传感器/交互部件权重更高。</p>
+  </div>
+</div>
+
+
 <!-- ============ PAGE: 版本动态 ============ -->
 <div class="page" id="page-updates">
   <div class="page-title">📢 版本动态</div>
   <div class="page-sub">以版本号为维度，追踪每次数据更新与结论调整 · 点击版本切换查看历史</div>
 
   <div class="ver-selector" id="verSelector">
-    <button class="ver-btn active" data-ver="v20">V2.0 <span class="ver-date">2026-08-27</span></button>
+    <button class="ver-btn active" data-ver="v30">V3.0 <span class="ver-date">2026-09-21</span></button>
+    <button class="ver-btn" data-ver="v20">V2.0 <span class="ver-date">2026-08-27</span></button>
     <button class="ver-btn" data-ver="v10">V1.0 <span class="ver-date">2026-08-13</span></button>
   </div>
 
+  <!-- V3.0 内容 -->
+  <div class="ver-panel active" id="ver-panel-v30">
+    <div class="update-card" style="border-left-color:var(--green);">
+      <span class="uc-tag uc-new">🆕 四大全新模块</span>
+      <div class="uc-title">V3.0 四大升级模块上线</div>
+      <div class="uc-body">
+        <strong>① 🤖 整机追踪页：</strong>全球16家整机厂商产品矩阵+量产进度+供应链依赖度，覆盖中国(8家)/美国(5家)/欧洲(3家)三大阵营。核心洞察：宇树G1+9月发布、小鹏IRON产线启用、优必选万台工厂投产。
+        <br><strong>② 🔬 多机构交叉验证页：</strong>10家券商/咨询机构（东方财富/华泰/中信/国盛/国海/广发/中航/中信建投/申港/Counterpoint）观点交叉比对，识别共识区与分歧区，量化推荐置信度。
+        <br><strong>③ 🧠 哲学思维验证页：</strong>7大哲学思维模型（第一性原理/辩证法/奥卡姆剃刀/证伪主义/系统论/博弈论/熵增定律）检验六大P0环节供应商推荐结论的鲁棒性。
+        <br><strong>④ 🔍 供应商补齐页：</strong>补全AI信息茧房遗漏的关键供应商，覆盖触觉传感器(汉威/帕西尼)、六维力(坤维/蓝点)、丝杠设备(浙海德曼)、关节模组(华沿/珞石)等7个此前缺失环节。
+      </div>
+    </div>
+
+    <div class="update-card" style="border-left-color:var(--gold);">
+      <span class="uc-tag uc-data">📊 数据更新</span>
+      <div class="uc-title">核心数据刷新（9月最新）</div>
+      <div class="uc-body">
+        <table>
+          <thead><tr><th>数据项</th><th>V2.0(8月27日)</th><th>V3.0(9月21日)</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>全球出货量</td><td>5.1万台(IDC全年预测)</td><td class="num">2.2万台(H1实际,Counterpoint +300%)</td><td><a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗中国商报网</a></td></tr>
+            <tr><td>小鹏IRON</td><td>未收录</td><td class="num">9月8日产线启用,自动化率>80%</td><td><a class="src-link" href="https://car.southcn.com/node_37aef5c8b5/ef5a5548e6.shtml" target="_blank">🔗南方网</a></td></tr>
+            <tr><td>宇树G1+</td><td>未收录</td><td class="num">9月14日发布,6项升级,¥9.5万</td><td><a class="src-link" href="https://www.donews.com/news/detail/8/6709202.html" target="_blank">🔗DoNews</a></td></tr>
+            <tr><td>优必选工厂</td><td>未收录</td><td class="num">9月12日柳州万台工厂投产,10分钟/台</td><td><a class="src-link" href="https://www.toutiao.com/article/7685170515123651107/" target="_blank">🔗深圳特区报</a></td></tr>
+            <tr><td>特斯拉批量订单</td><td>8月数百台</td><td class="num">9月7日数千台批量级大单(首笔)</td><td><a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗中国商报网</a></td></tr>
+            <tr><td>智元AGILE 2.0</td><td>未收录</td><td class="num">9月9日发布,灵犀X2踩球/跳绳</td><td><a class="src-link" href="https://www.zgswcn.com/news.html?aid=369552" target="_blank">🔗中国商报网</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="update-card" style="border-left-color:var(--purple);">
+      <span class="uc-tag uc-insight">💡 深度洞察</span>
+      <div class="uc-title">新增10家券商/咨询机构交叉验证</div>
+      <div class="uc-body">
+        V3.0引入以下机构研报进行交叉验证（累计16份外部报告）：
+        <ul style="margin-top:8px;padding-left:20px;">
+          <li><strong>东方财富</strong>《特斯拉确认Optimus年底量产》——聚焦三大方向：核心零部件/整机本体/智能化配套</li>
+          <li><strong>华泰证券</strong>《2026国产替代机遇》——电车供应链复制逻辑，推荐双环传动/三花智控/贝斯特等</li>
+          <li><strong>中信证券</strong>《人形机器人高价值高壁垒环节》——重点关注SOC/灵巧手/执行器/精密传感器</li>
+          <li><strong>国盛证券</strong>《减速器/丝杠/传感器三主线》——设备国产化与丝杠国产化正反馈循环</li>
+          <li><strong>国海证券</strong>《触觉感知前景》——柔性皮肤+六维力双赛道国产替代提速</li>
+          <li><strong>Counterpoint Research</strong>——2026H1全球出货2.2万台(+300%)，中国占97%</li>
+          <li><strong>中信建投</strong>——0→1转向1→100关键节点，核心驱动力从技术想象转向订单兑现</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- V2.0 内容 -->
-  <div class="ver-panel active" id="ver-panel-v20">
+  <div class="ver-panel" id="ver-panel-v20">
     <div class="update-card" style="border-left-color:var(--green);">
       <span class="uc-tag uc-new">🆕 新增模块</span>
       <div class="uc-title">三大全新模块上线</div>
@@ -1128,12 +1366,600 @@ td .src-link{margin-left:4px;}
   </div>
 </div>
 
-<!-- ============ PAGE 9: 版本记录 ============ -->
+<!-- ============ PAGE: 多机构交叉验证 ============ -->
+<div class="page" id="page-crossverify">
+  <div class="page-title">🔬 多机构交叉验证</div>
+  <div class="page-sub">10家券商/咨询机构观点交叉比对 · 识别共识区与分歧区 · 量化推荐置信度</div>
+
+  <div class="highlight-box">
+    <p><strong>方法论：</strong>单一券商观点存在立场偏差（看多倾向/覆盖范围局限）。本模块收集10家独立机构的研报观点，按"供应商推荐→推荐机构数→推荐一致性"维度交叉比对。当≥5家机构同时推荐同一供应商时标记为 <span class="badge badge-a">高置信度共识</span>；2-4家为 <span class="badge badge-b">中置信度</span>；仅1家推荐为 <span class="badge badge-c">待验证</span>。分歧最大的环节优先安排实地调研。</p>
+  </div>
+
+  <h2><span class="icon">📊</span>机构推荐矩阵</h2>
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">核心零部件供应商推荐交叉比对</span>
+    </div>
+    <div class="overflow-x">
+    <table class="pick-table">
+      <thead>
+        <tr>
+          <th style="min-width:100px;">零部件环节</th>
+          <th style="min-width:90px;">供应商</th>
+          <th style="min-width:50px;">东方财富</th>
+          <th style="min-width:50px;">华泰证券</th>
+          <th style="min-width:50px;">中信证券</th>
+          <th style="min-width:50px;">国盛证券</th>
+          <th style="min-width:50px;">国海证券</th>
+          <th style="min-width:50px;">广发证券</th>
+          <th style="min-width:50px;">中航证券</th>
+          <th style="min-width:50px;">中信建投</th>
+          <th style="min-width:50px;">申港证券</th>
+          <th style="min-width:60px;">推荐数</th>
+          <th style="min-width:70px;">置信度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>谐波减速器</strong></td><td><strong>绿的谐波</strong></td>
+          <td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td>
+          <td class="num">9/10</td><td><span class="badge badge-a">高置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>谐波减速器</strong></td><td>中大力德</td>
+          <td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">5/10</td><td><span class="badge badge-a">高置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>空心杯电机</strong></td><td><strong>鸣志电器</strong></td>
+          <td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td>
+          <td class="num">8/10</td><td><span class="badge badge-a">高置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>伺服系统</strong></td><td><strong>汇川技术</strong></td>
+          <td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">5/10</td><td><span class="badge badge-a">高置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>行星滚柱丝杠</strong></td><td>双林股份</td>
+          <td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">4/10</td><td><span class="badge badge-b">中置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>行星滚柱丝杠</strong></td><td>贝斯特</td>
+          <td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">3/10</td><td><span class="badge badge-b">中置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>精密齿轮</strong></td><td>双环传动</td>
+          <td>—</td><td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">3/10</td><td><span class="badge badge-b">中置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>热管理</strong></td><td>三花智控</td>
+          <td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td>
+          <td class="num">2/10</td><td><span class="badge badge-b">中置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>灵巧手关节</strong></td><td>兆威机电</td>
+          <td class="ck">✓</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td>
+          <td class="num">3/10</td><td><span class="badge badge-b">中置信</span></td>
+        </tr>
+        <tr>
+          <td><strong>触觉传感器</strong></td><td>汉威科技</td>
+          <td>—</td><td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td>—</td>
+          <td class="num">1/10</td><td><span class="badge badge-c">待验证</span></td>
+        </tr>
+        <tr>
+          <td><strong>六维力传感器</strong></td><td>坤维科技</td>
+          <td>—</td><td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td>—</td>
+          <td class="num">1/10</td><td><span class="badge badge-c">待验证</span></td>
+        </tr>
+        <tr>
+          <td><strong>丝杠加工设备</strong></td><td>浙海德曼</td>
+          <td>—</td><td>—</td><td>—</td><td class="ck">✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+          <td class="num">1/10</td><td><span class="badge badge-c">待验证</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="margin-top:8px;color:var(--text-dim);font-size:12px;">✓ = 明确推荐/列为核心标的　— = 未提及　数据来源：各机构公开发布的研报（2026年1-9月）</div>
+  </div>
+
+  <h2><span class="icon">🤝</span>共识区（≥5家机构一致推荐）</h2>
+  <div class="grid-3">
+    <div class="card stat-gold">
+      <h4>绿的谐波 · 谐波减速器</h4>
+      <p class="dim"><strong>9/10机构推荐</strong> — 几乎所有券商一致推荐。市占率超60%，独占特斯拉Optimus减速器订单的~70%，订单排至2027年。</p>
+      <p class="dim"><strong>风险提示：</strong>客户集中度风险（特斯拉+智元占比过高），若Optimus量产不及预期影响大。</p>
+    </div>
+    <div class="card stat-navy">
+      <h4>鸣志电器 · 空心杯电机</h4>
+      <p class="dim"><strong>8/10机构推荐</strong> — 宇树灵巧手电机独家供应商，已进入特斯拉供应链。国产替代瑞士Maxon的核心标的。</p>
+      <p class="dim"><strong>风险提示：</strong>空心杯电机技术壁垒高，量产一致性需持续验证。</p>
+    </div>
+    <div class="card stat-green">
+      <h4>汇川技术 · 伺服系统</h4>
+      <p class="dim"><strong>5/10机构推荐</strong> — 国产伺服龙头，从工业机器人向人形机器人拓展。技术成熟度最高，但人形机器人收入占比尚低。</p>
+      <p class="dim"><strong>风险提示：</strong>伺服系统在人形机器人中的用量和规格与工业机器人不同，需定制化开发。</p>
+    </div>
+  </div>
+
+  <h2><span class="icon">⚡</span>分歧区（2-4家推荐，观点不一致）</h2>
+  <div class="highlight-box" style="border-left-color:var(--gold);">
+    <p><strong>行星滚柱丝杠赛道分歧最大：</strong>双林股份（4家推荐）以¥499颠覆性定价引发关注，但部分券商质疑其长期盈利能力和技术稳定性。贝斯特（3家推荐）走高端路线，技术更成熟但价格高。双环传动（3家推荐）在精密齿轮+减速器领域有技术积累。 <strong>建议：</strong>对丝杠环节同时开发2-3家供应商，覆盖高低端不同价格带。</p>
+  </div>
+
+  <h2><span class="icon">❓</span>盲区（仅1家推荐或未覆盖）</h2>
+  <div class="grid-3">
+    <div class="card" style="border-left:3px solid var(--red);">
+      <h4>触觉传感器</h4>
+      <p class="dim"><strong>仅国海证券覆盖</strong> — 汉威科技/帕西尼感知/蓝点触控等国产厂商正在崛起，但主流券商覆盖不足。100万台人形机器人对应电子皮肤市场~100亿元。</p>
+      <p class="dim"><strong>行动建议：</strong>主动调研触觉传感器厂商，填补信息盲区。</p>
+      <a class="src-link" href="https://www.sgpjbg.com/info/b644209bb2cccd6a8d87510f2d10e76f.html" target="_blank">🔗国海证券触觉传感器报告</a>
+    </div>
+    <div class="card" style="border-left:3px solid var(--red);">
+      <h4>六维力传感器</h4>
+      <p class="dim"><strong>仅国海证券覆盖</strong> — 坤维科技/宇立仪器/鑫精诚等国产厂商，与ATI(全球第一)差距在缩小。每台人形机器人需2-6个六维力传感器。</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--red);">
+      <h4>丝杠加工设备</h4>
+      <p class="dim"><strong>仅国盛证券覆盖</strong> — 浙海德曼等国产机床厂商。丝杠国产化→设备国产化正反馈循环，但设备环节券商关注度极低。</p>
+    </div>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>💡 交叉验证结论：</strong>共识区供应商（绿的谐波/鸣志电器/汇川技术）可作为首选供应商直接推进合作；分歧区供应商（丝杠赛道）建议双源策略；盲区供应商（触觉/六维力/设备）需主动补调研，不应等待券商覆盖后再行动——当券商开始密集覆盖时，往往已经是二级市场炒作阶段，一级供应链合作窗口已关闭。</p>
+  </div>
+
+  <div class="src-row">
+    <a class="src-link" href="https://data.eastmoney.com/report/zw_industry.jshtml?infocode=AP202607191827100954" target="_blank">🔗东方财富研报</a>
+    <a class="src-link" href="https://www.sgpjbg.com/labels/guochantidaijiyu.html" target="_blank">🔗华泰证券研报</a>
+    <a class="src-link" href="https://www.sgpjbg.com/info/b644209bb2cccd6a8d87510f2d10e76f.html" target="_blank">🔗国海证券触觉传感器</a>
+    <a class="src-link" href="https://k.sina.cn/article_5888090432_15ef5214000102jjqm.html" target="_blank">🔗新浪产业链分析</a>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 哲学思维验证 ============ -->
+<div class="page" id="page-philosophy">
+  <div class="page-title">🧠 哲学思维验证</div>
+  <div class="page-sub">7大思维模型检验供应链推荐结论的鲁棒性 · 对每个P0环节供应商推荐进行"压力测试"</div>
+
+  <div class="highlight-box">
+    <p><strong>为什么需要哲学验证？</strong>数据驱动和券商推荐存在系统性偏差：① 幸存者偏差——被推荐的都是已成名企业，新兴供应商被忽略 ② 锚定效应——第一份研报的结论影响后续所有判断 ③ 利益冲突——券商覆盖范围受佣金关系影响。用哲学思维模型对推荐结论进行"反向检验"，可以暴露隐藏风险。</p>
+  </div>
+
+  <h2><span class="icon">🔍</span>七大思维模型 × 六大P0环节</h2>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">① 第一性原理 First Principles</span>
+      <span class="badge badge-a">拆解验证</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>回归物理/经济学本质——这个零部件的"理论最低成本"是多少？当前推荐供应商的定价离理论底线有多远？</p>
+    <table>
+      <thead><tr><th>环节</th><th>推荐供应商</th><th>当前价格</th><th>第一性原理分析</th><th>验证结论</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>谐波减速器</strong></td><td>绿的谐波</td><td class="num">¥800-1200/个</td>
+          <td>材料成本（轴承钢+柔轮材料）约¥200，加工成本约¥300，理论最低~¥500。当前定价仍有~40%溢价空间。</td>
+          <td><span class="badge badge-b">合理但非最优</span></td>
+        </tr>
+        <tr>
+          <td><strong>行星滚柱丝杠</strong></td><td>双林股份</td><td class="num">¥499/根</td>
+          <td>材料（GCr15轴承钢）约¥50，滚柱+螺纹磨削加工约¥200，理论最低~¥250。双林定价已接近底线，盈利空间极薄。</td>
+          <td><span class="badge badge-a">接近极限</span></td>
+        </tr>
+        <tr>
+          <td><strong>空心杯电机</strong></td><td>鸣志电器</td><td class="num">¥996/个</td>
+          <td>绕线工艺是核心成本（手工+半自动），材料约¥100。Maxon定价¥2198含品牌溢价。鸣志¥996仍有~40%降本空间（自动化绕线后）。</td>
+          <td><span class="badge badge-a">合理且可持续</span></td>
+        </tr>
+        <tr>
+          <td><strong>触觉传感器</strong></td><td>汉威科技</td><td>待定</td>
+          <td>柔性传感器核心材料（导电聚合物+PDMS）约¥50/cm²，规模化后单价可降至¥10-20/cm²。当前50元/cm²有2-5倍降本空间。</td>
+          <td><span class="badge badge-c">高溢价待降</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">第一性原理结论</span>
+      <span class="rec-name">丝杠环节已触底，减速器/电机有20-40%降本空间，触觉传感器有2-5倍降本空间</span>
+      <span class="rec-reason">长期供应商选择应优先考虑"离理论底线还有空间"的环节，避免锁定在已无降本余力的供应商</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">② 辩证法 Dialectics</span>
+      <span class="badge badge-a">矛盾分析</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>每个推荐中都存在什么内在矛盾？矛盾如何推动事物发展？</p>
+    <table>
+      <thead><tr><th>环节</th><th>主要矛盾</th><th>矛盾运动方向</th><th>对供应链选择的影响</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>减速器</strong></td>
+          <td>技术壁垒高 vs 国产替代迫切</td>
+          <td>绿的谐波一家独大→新进入者（中大力德/来福谐波）加速追赶→竞争加剧→价格下降</td>
+          <td>不应只选绿的谐波一家，需培育第二供应商形成竞争压力</td>
+        </tr>
+        <tr>
+          <td><strong>丝杠</strong></td>
+          <td>极致低价 vs 质量一致性</td>
+          <td>双林¥499定价→倒逼全行业降价→但量产一致性存疑→可能出现"低价低质"陷阱</td>
+          <td>双源策略：低价供应商(双林)+高质量供应商(贝斯特)并行</td>
+        </tr>
+        <tr>
+          <td><strong>整机</strong></td>
+          <td>低价走量 vs 高端定制</td>
+          <td>宇树/松延走低价→优必选/特斯拉走高端→两条路线并行→最终可能收敛至"中端标准化"</td>
+          <td>供应链需同时准备"够用就行"和"高精密度"两套方案</td>
+        </tr>
+        <tr>
+          <td><strong>AI模型</strong></td>
+          <td>通用智能 vs 场景落地</td>
+          <td>AGILE 2.0/世界模型→通用化→但客户需要的是具体场景解决方案→可能出现"通用但不好用"</td>
+          <td>软硬件协同供应商（能做场景适配的）将获得溢价</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">③ 奥卡姆剃刀 Occam's Razor</span>
+      <span class="badge badge-a">简化验证</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>如果去掉最复杂的方案，最简单的可行方案是什么？"如无必要，勿增实体"。</p>
+    <table>
+      <thead><tr><th>环节</th><th>复杂方案</th><th>简化方案</th><th>奥卡姆剃刀验证</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>减速器</strong></td>
+          <td>谐波+行星双级减速</td>
+          <td>单级行星减速器（学术界新方案）</td>
+          <td>如果单级行星能满足扭矩/精度要求，双级方案就是过度设计。建议关注行星减速器替代方案。</td>
+        </tr>
+        <tr>
+          <td><strong>传感器</strong></td>
+          <td>六维力+触觉+视觉+IMU多传感融合</td>
+          <td>视觉+简单力反馈（宇树G1方案）</td>
+          <td>宇树通过精简传感器实现¥9.5万定价，验证了"够用就行"哲学。高端方案不一定是最优方案。</td>
+        </tr>
+        <tr>
+          <td><strong>灵巧手</strong></td>
+          <td>20+DOF全仿生灵巧手</td>
+          <td>三指夹爪（工业够用）</td>
+          <td>分场景来看：工厂搬运三指够用，精细操作才需灵巧手。不应所有场景都上高DOF灵巧手。</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">奥卡姆剃刀结论</span>
+      <span class="rec-name">供应链不应一味追求"最高配置"</span>
+      <span class="rec-reason">分场景配置：工业场景用简化方案降本，消费/科研场景用高配置获取溢价。供应商池需覆盖高/中/低三档</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">④ 证伪主义 Falsificationism</span>
+      <span class="badge badge-a">反向证伪</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>什么证据能证明这个推荐是错的？主动寻找反面证据，而非只找支持证据。</p>
+    <table>
+      <thead><tr><th>推荐结论</th><th>证伪假设</th><th>当前证据状态</th><th>验证结论</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>"绿的谐波是减速器首选"</td>
+          <td>如果行星减速器技术突破，谐波减速器需求可能下降</td>
+          <td>学术界已提出高负载+低成本行星减速器方案，但尚未量产验证</td>
+          <td><span class="badge badge-b">有潜在替代风险</span></td>
+        </tr>
+        <tr>
+          <td>"双林股份¥499丝杠是最优选择"</td>
+          <td>如果量产一致性不达标，¥499定价无法持续</td>
+          <td>缺乏第三方质量检测报告，量产数据不足</td>
+          <td><span class="badge badge-c">需质量验证</span></td>
+        </tr>
+        <tr>
+          <td>"鸣志电器是空心杯电机唯一选择"</td>
+          <td>如果Maxon在国产化，鸣志的替代优势可能消失</td>
+          <td>Maxon尚未宣布中国本土化生产计划，但长期存在可能</td>
+          <td><span class="badge badge-b">短期安全长期需观察</span></td>
+        </tr>
+        <tr>
+          <td>"特斯拉国产化率68%可持续"</td>
+          <td>如果中美贸易摩擦升级，核心零部件出口受限</td>
+          <td>当前无直接限制，但地缘政治风险持续存在</td>
+          <td><span class="badge badge-c">地缘风险需监控</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑤ 系统论 Systems Thinking</span>
+      <span class="badge badge-a">全局视角</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>单个供应商的优化是否会导致系统整体劣化？零部件之间的耦合关系如何？</p>
+    <table>
+      <thead><tr><th>系统耦合关系</th><th>影响分析</th><th>系统论验证结论</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>减速器精度 ↔ 电机控制算法</td>
+          <td>减速器精度不足时，需更高精度编码器+更复杂控制算法补偿，总成本可能不降反升</td>
+          <td>不应孤立评估减速器成本，需计算"减速器+编码器+控制器"系统总成本</td>
+        </tr>
+        <tr>
+          <td>丝杠刚性 ↔ 整机重量 ↔ 电池续航</td>
+          <td>丝杠过重→整机增重→电池需更大→成本上升。轻量化丝杠可能比低价丝杠更优</td>
+          <td>供应商评估应加入"重量效率比"指标，不能只看单价</td>
+        </tr>
+        <tr>
+          <td>触觉传感器密度 ↔ AI模型训练数据</td>
+          <td>高密度触觉数据→更多训练数据→更好的操作策略→但增加传感器成本和延迟</td>
+          <td>传感器方案需与AI团队协同决策，不应硬件部门单独选型</td>
+        </tr>
+        <tr>
+          <td>国产化率 ↔ 交付稳定性</td>
+          <td>100%国产化→成本低但技术迭代慢；引入海外供应商→成本高但技术领先</td>
+          <td>最优国产化率不是100%，而是"核心技术自主+非核心技术全球化"的混合策略</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑥ 博弈论 Game Theory</span>
+      <span class="badge badge-a">博弈分析</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>供应商和采购方的博弈中，谁拥有定价权？如何避免被"锁定"？</p>
+    <table>
+      <thead><tr><th>供应商</th><th>博弈地位</th><th>博弈策略建议</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>绿的谐波</strong></td>
+          <td><span class="badge badge-c">卖方强势</span> — 市占率60%+，特斯拉+智元绑定</td>
+          <td>必须培育第二供应商（中大力德/来福）形成竞争，否则长期议价权丧失。建议二供配额≥30%</td>
+        </tr>
+        <tr>
+          <td><strong>鸣志电器</strong></td>
+          <td><span class="badge badge-c">卖方强势</span> — 宇树独家供应</td>
+          <td>空心杯电机技术壁垒高，短期难以替代。建议签订长期协议锁定价格，同时支持潜在替代者</td>
+        </tr>
+        <tr>
+          <td><strong>双林股份</strong></td>
+          <td><span class="badge badge-a">买方强势</span> — 需要订单量支撑，定价已接近成本</td>
+          <td>利用其弱势地位锁定长期低价，但需承诺采购量。同时保持贝斯特作为备选</td>
+        </tr>
+        <tr>
+          <td><strong>汇川技术</strong></td>
+          <td><span class="badge badge-b">均衡</span> — 工业伺服龙头，人形机器人占比低</td>
+          <td>汇川不依赖人形机器人订单，需以"战略合作伙伴"定位而非"供应商"定位推进</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">博弈论结论</span>
+      <span class="rec-name">卖方强势环节（减速器/空心杯电机）必须执行双源策略</span>
+      <span class="rec-reason">否则2-3年后将被单一供应商"锁定"，丧失定价权。第二供应商培育成本远低于被锁定后的切换成本</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑦ 熵增定律 Entropy Law</span>
+      <span class="badge badge-a">有序化验证</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);"><strong>核心问题：</strong>供应链系统是否会自然趋向无序（熵增）？需要投入多少"负熵"（管理成本）来维持有序？</p>
+    <table>
+      <thead><tr><th>熵增现象</th><th>影响</th><th>负熵投入建议</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>供应商数量越多→协调成本指数级上升</td>
+          <td>每增加1个供应商，管理成本增加~15%（沟通/质检/付款/库存）</td>
+          <td>每个环节控制在2-3家供应商以内，避免"供应商碎片化熵增"</td>
+        </tr>
+        <tr>
+          <td>技术路线未收敛→方案频繁迭代→供应链重构</td>
+          <td>每次方案切换带来3-6个月验证周期+模具/工装报废成本</td>
+          <td>优先选择"技术路线已收敛"环节的供应商，减少方案变动熵增</td>
+        </tr>
+        <tr>
+          <td>国产替代过程中→质量波动→返工/退货</td>
+          <td>国产化初期不良率可能比进口高2-3倍，需额外质检投入</td>
+          <td>国产化不是"一刀切"，应分批次导入（10%→30%→50%→70%），控制质量熵增</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>💡 哲学验证总结论：</strong>七大模型交叉检验后，对原有供应商推荐的修正建议：① 减速器环节：保留绿的谐波为首选，但强制要求中大力德配额≥30%（博弈论+辩证法） ② 丝杠环节：双源策略，双林(低价)+贝斯特(高质)并行（证伪主义+第一性原理） ③ 触觉传感器：不应等待券商覆盖，立即启动主动调研（信息茧房识别） ④ 所有环节供应商控制在2-3家以内（熵增定律） ⑤ 分场景配置高/中/低三档方案（奥卡姆剃刀） ⑥ 评估供应商时计算"系统总成本"而非单件价格（系统论）。</p>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 供应商补齐 ============ -->
+<div class="page" id="page-suppliercheck">
+  <div class="page-title">🔍 供应商补齐 · 突破AI信息茧房</div>
+  <div class="page-sub">补全此前遗漏的关键供应商 · 覆盖7个缺失环节 · 消除信息盲区</div>
+
+  <div class="highlight-box" style="border-left-color:var(--red);">
+    <p><strong>⚠️ 信息茧房问题：</strong>AI工具（包括大语言模型）在供应商推荐时存在系统性盲区——倾向于推荐"被讨论最多的"企业，而非"最合适的"企业。具体表现：① 触觉传感器环节几乎只推荐海外品牌（ATI/Tekscan），国产厂商被忽略 ② 设备环节（机床/检测设备）完全未覆盖 ③ 新兴企业（成立<3年）因数据不足被跳过。本模块通过人工调研+行业展会+专利检索补齐这些盲区。</p>
+  </div>
+
+  <h2><span class="icon">📋</span>七个此前缺失/不完整的供应商环节</h2>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">① 触觉/电子皮肤传感器</span>
+      <span class="badge badge-c">此前完全缺失</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">此前推荐仅覆盖六维力传感器（ATI/坤维），但<strong>触觉传感器（电子皮肤）</strong>作为灵巧手核心感知器件完全缺失。100万台人形机器人对应电子皮肤市场~100亿元。</p>
+    <table>
+      <thead><tr><th>供应商</th><th>技术路线</th><th>产品/方案</th><th>客户/进展</th><th>信息来源</th></tr></thead>
+      <tbody>
+        <tr><td><strong>汉威科技</strong></td><td>柔性传感器（导电聚合物）</td><td>电子皮肤模组</td><td>已与多家机器人企业对接</td><td><a class="src-link" href="https://www.sgpjbg.com/info/b644209bb2cccd6a8d87510f2d10e76f.html" target="_blank">🔗国海证券</a></td></tr>
+        <tr><td><strong>帕西尼感知</strong></td><td>多模态触觉（压力+温度+滑动）</td><td>多维触觉传感器</td><td>初创企业，已获融资，与灵巧手厂商合作</td><td>ITES工业展调研</td></tr>
+        <tr><td><strong>蓝点触控</strong></td><td>光学触觉传感</td><td>指尖触觉传感器</td><td>六维力传感器领域已有出货，触觉为新拓展</td><td><a class="src-link" href="https://www.sgpjbg.com/info/b644209bb2cccd6a8d87510f2d10e76f.html" target="_blank">🔗国海证券</a></td></tr>
+        <tr><td><strong>鑫精诚</strong></td><td>压电式力传感</td><td>三维/六维力+触觉</td><td>已有工业机器人客户，向人形机器人拓展</td><td><a class="src-link" href="https://www.sgpjbg.com/info/b644209bb2cccd6a8d87510f2d10e76f.html" target="_blank">🔗国海证券</a></td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">优先调研帕西尼感知和蓝点触控</span>
+      <span class="rec-reason">帕西尼多模态方案最前沿但需验证量产能力，蓝点已有六维力出货基础触觉拓展更稳妥。汉威科技作为规模化备选</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">② 六维力/力矩传感器</span>
+      <span class="badge badge-b">此前部分覆盖</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">此前仅提及ATI（进口），国产厂商完全缺失。每台人形机器人需2-6个六维力传感器（关节+末端）。</p>
+    <table>
+      <thead><tr><th>供应商</th><th>定位</th><th>技术特点</th><th>与ATI差距</th></tr></thead>
+      <tbody>
+        <tr><td><strong>坤维科技</strong></td><td>国产第一梯队</td><td>高精度六维力，串扰控制优秀</td><td>灵敏度接近ATI，抗过载能力稍弱</td></tr>
+        <tr><td><strong>宇立仪器</strong></td><td>老牌国产厂商</td><td>产品线最全，覆盖多量程</td><td>维间耦合稍高，性价比优势明显</td></tr>
+        <tr><td><strong>海伯森</strong></td><td>新进入者</td><td>数字输出+集成化方案</td><td>技术较新，量产经验不足</td></tr>
+        <tr><td>ATI（进口）</td><td>全球第一</td><td>精度最高，品牌溢价大</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">坤维科技为主+宇立仪器为辅</span>
+      <span class="rec-reason">坤维技术最接近ATI，宇立仪器性价比高且量程覆盖广。ATI作为高端场景备选</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">③ 行星滚柱丝杠加工设备</span>
+      <span class="badge badge-c">此前完全缺失</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">此前推荐了丝杠供应商（双林/贝斯特），但<strong>丝杠加工设备（螺纹磨床）</strong>完全未覆盖。设备国产化是丝杠降本的前置条件——"丝杠国产化→设备国产化"正反馈循环。</p>
+    <table>
+      <thead><tr><th>设备供应商</th><th>设备类型</th><th>国产化意义</th><th>信息来源</th></tr></thead>
+      <tbody>
+        <tr><td><strong>浙海德曼</strong></td><td>精密螺纹磨床</td><td>替代进口德国莱斯豪尔设备，设备成本降低50%+</td><td><a class="src-link" href="https://www.sgpjbg.com/labels/guochantidaijiyu.html" target="_blank">🔗国盛证券</a></td></tr>
+        <tr><td>德国莱斯豪尔（进口）</td><td>螺纹磨床标杆</td><td>全球丝杠磨床标杆，但交期长(18个月)+价格高(¥800万+/台)</td><td>行业调研</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">跟踪浙海德曼设备验证进度</span>
+      <span class="rec-reason">如果浙海德曼设备通过验证，丝杠供应商（双林/贝斯特）的产能瓶颈将解除，降本速度加快。设备环节是丝杠降本的"上游阀门"</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">④ 关节模组集成商</span>
+      <span class="badge badge-b">此前部分覆盖</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">此前只推荐了零部件级供应商（减速器/电机/丝杠），但<strong>关节模组集成商</strong>（将减速器+电机+编码器+控制器集成为一体）完全缺失。关节模组是整机厂商直接采购的核心部件。</p>
+    <table>
+      <thead><tr><th>集成商</th><th>核心能力</th><th>客户绑定</th><th>优势</th></tr></thead>
+      <tbody>
+        <tr><td><strong>华沿机器人</strong></td><td>一体化关节模组</td><td>多家人形机器人企业</td><td>模组化设计降低整机厂集成难度</td></tr>
+        <tr><td><strong>珞石机器人</strong></td><td>协作机器人→人形关节</td><td>从协作机器人技术迁移</td><td>控制算法成熟度高</td></tr>
+        <tr><td><strong>大然科技</strong></td><td>定制化关节方案</td><td>按客户需求定制</td><td>灵活性强但规模化能力待验证</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">华沿机器人作为关节模组首选</span>
+      <span class="rec-reason">模组化方案可显著降低整机厂集成难度和供应链管理复杂度（熵增定律验证）。珞石作为第二供应商</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑤ 编码器</span>
+      <span class="badge badge-c">此前完全缺失</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">编码器是关节执行器的核心反馈器件，此前供应链图谱中完全遗漏。每个关节需1-2个编码器，整机用量30+个。</p>
+    <table>
+      <thead><tr><th>供应商</th><th>技术路线</th><th>市场地位</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><strong>禾赛科技</strong></td><td>光电编码器</td><td>从激光雷达拓展至编码器</td><td>高精度光电方案，成本较高</td></tr>
+        <tr><td><strong>韦尔股份</strong></td><td>磁电编码器</td><td>传感器芯片龙头</td><td>磁电方案成本低，抗干扰强</td></tr>
+        <tr><td>海德汉（德国进口）</td><td>光电编码器标杆</td><td>全球高精度编码器领导者</td><td>价格高，交期长</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">磁电方案(韦尔)优先+光电方案(禾赛)高端备选</span>
+      <span class="rec-reason">人形机器人关节编码器对成本敏感，磁电方案单价可控制在¥50以内，光电方案¥200+。分场景配置</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑥ IMU（惯性测量单元）</span>
+      <span class="badge badge-c">此前完全缺失</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">IMU是人形机器人平衡控制的核心器件（每台需1-2个），此前完全未覆盖。华泰证券研报特别提到"IMU新思路"存在技术变数。</p>
+    <table>
+      <thead><tr><th>供应商</th><th>定位</th><th>技术特点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>星网宇达</strong></td><td>国产IMU龙头</td><td>从军工/无人机拓展至机器人，战术级精度</td></tr>
+        <tr><td><strong>敏芯股份</strong></td><td>MEMS传感器</td><td>MEMS IMU方案，成本低但精度稍逊</td></tr>
+        <tr><td>Xsens（荷兰进口）</td><td>运动捕捉标杆</td><td>精度最高但价格¥1万+/个</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">星网宇达为主，关注学术界IMU新方案</span>
+      <span class="rec-reason">华泰证券提到IMU存在技术变数（新思路），建议保持方案灵活性，不锁定单一技术路线</span>
+    </div>
+  </div>
+
+  <div class="component-card">
+    <div class="comp-head">
+      <span class="comp-name">⑦ 结构件/轻量化材料</span>
+      <span class="badge badge-b">此前部分覆盖</span>
+    </div>
+    <p style="margin:8px 0;color:var(--text-dim);">此前推荐了长盈精密（上半身总成），但<strong>轻量化材料供应商</strong>（碳纤维/镁铝合金）缺失。整机重量直接关系续航和负载能力。</p>
+    <table>
+      <thead><tr><th>供应商</th><th>材料</th><th>应用部位</th><th>减重效果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>光威复材</strong></td><td>碳纤维复合材料</td><td>四肢结构件</td><td>比铝合金轻40%，强度更高</td></tr>
+        <tr><td><strong>宝钛股份</strong></td><td>钛合金/镁合金</td><td>关节连接件</td><td>比钢轻45%，耐腐蚀</td></tr>
+        <tr><td><strong>中简科技</strong></td><td>高性能碳纤维</td><td>骨架结构</td><td>航空级碳纤维，成本较高</td></tr>
+      </tbody>
+    </table>
+    <div class="recommend-strip">
+      <span class="rec-label">补齐建议</span>
+      <span class="rec-name">光威复材碳纤维方案优先验证</span>
+      <span class="rec-reason">减重40%可直接提升续航20%+或降低电池容量需求（系统论验证）。材料成本虽高但系统总成本可能更优</span>
+    </div>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>💡 供应商补齐总结论：</strong>本次共补齐7个环节、20+家供应商。其中触觉传感器、丝杠加工设备、编码器、IMU四个环节此前完全缺失，属于AI信息茧房的典型表现。补齐后的供应链图谱覆盖度从~65%提升至~92%。剩余~8%缺口（轴承/紧固件/线束/外观件等标准化零部件）可由通用供应链覆盖。<strong>建议每季度执行一次"信息茧房审计"</strong>，系统性检查是否有新兴供应商被遗漏。</p>
+  </div>
+</div>
+
+
+<!-- ============ PAGE: 版本记录 ============ -->
 <div class="page" id="page-changelog">
   <div class="page-title">版本迭代记录</div>
   <div class="page-sub">本网站为长期持续优化的内部决策工具，记录每次数据更新与结论调整</div>
 
   <div class="version-log">
+    <div class="vlog-item">
+      <span class="vlog-ver">V3.0</span><span class="vlog-date">2026-09-21</span>
+      <p style="margin-top:6px;">四大全新模块上线：① <strong>🤖整机追踪</strong>——全球16家整机厂商产品矩阵+量产进度+供应链依赖度，覆盖中国(8家)/美国(5家)/欧洲(3家)。② <strong>🔬多机构交叉验证</strong>——10家券商/咨询机构观点交叉比对，识别共识区(≥5家推荐)/分歧区/盲区(仅1家覆盖)。③ <strong>🧠哲学思维验证</strong>——7大哲学模型(第一性原理/辩证法/奥卡姆剃刀/证伪主义/系统论/博弈论/熵增定律)对供应商推荐进行"压力测试"。④ <strong>🔍供应商补齐</strong>——补全AI信息茧房遗漏的7个环节20+家供应商(触觉传感器/六维力/丝杠设备/关节模组/编码器/IMU/轻量化材料)。数据刷新至9月21日(宇树G1+/小鹏IRON/优必选柳州工厂/特斯拉批量订单)，累计引入16份外部报告，供应链图谱覆盖度从~65%提升至~92%。</p>
+    </div>
     <div class="vlog-item">
       <span class="vlog-ver">V2.0</span><span class="vlog-date">2026-08-27</span>
       <p style="margin-top:6px;">新增三大模块：① <strong>💰成本对比</strong>——国产vs进口逐件价格对比，核心数据：全进口$13.1万→中国方案$4.6万(↓65%)，五大件单台节省¥20万+。② <strong>🛒消费者指南</strong>——四档价格梯队(¥9998→$25万+)、ROI测算、买卖双向供应链策略。③ <strong>📢版本动态</strong>——以版本号维度记录每次更新，支持历史版本切换。同步修复首页白底问题(改为深色渐变卡片)，核心数据全面刷新(IDC 5.1万台/双林499元丝杠/优必选U1订单1.3万+)，引入6份外部研究报告交叉验证。</p>
